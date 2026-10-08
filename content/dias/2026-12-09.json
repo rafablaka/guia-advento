@@ -1,0 +1,53 @@
+{
+  "dia": 11,
+  "data": "2026-12-09",
+  "tipo": "comum",
+  "semana": 2,
+  "santo": {
+    "nome": "Santo Afonso de Ligório",
+    "titulo": "Doutor da Igreja",
+    "retrato": null
+  },
+  "titulo": "[RASCUNHO] Título do dia 11",
+  "citacao": {
+    "texto": "[RASCUNHO] Citação curta do dia 11",
+    "autor": "[RASCUNHO] Santo Afonso de Ligório"
+  },
+  "ouvir": {
+    "slides": [
+      "[RASCUNHO] Trecho fiel de Santo Afonso de Ligório para o dia 11.",
+      "[RASCUNHO] Explicação atual do trecho, ligada ao dia a dia.",
+      "[RASCUNHO] Uma pergunta para levar para a oração."
+    ],
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "rezar": {
+    "texto": "[RASCUNHO] Oração guiada do dia 11, a partir do texto de hoje.",
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "agir": {
+    "missao": "[RASCUNHO] Missão concreta do dia 11."
+  },
+  "ilustracao": {
+    "arquivo": "anunciacao.svg",
+    "credito": "A Anunciação · releitura a partir de Fra Angelico",
+    "alt": "A Anunciação em estilo vitral: a pomba do Espírito Santo desce em raios dourados sobre um lírio, sob um arco ogival"
+  },
+  "antifona": null,
+  "frases": [
+    {
+      "texto": "[RASCUNHO] Citação curta do dia 11",
+      "autor": "[RASCUNHO] Santo Afonso de Ligório"
+    },
+    {
+      "texto": "[RASCUNHO] Outra frase marcante do dia 11",
+      "autor": "[RASCUNHO] Santo Afonso de Ligório"
+    },
+    {
+      "texto": "[RASCUNHO] Frase da oração do dia 11",
+      "autor": "Oração do dia"
+    }
+  ]
+}

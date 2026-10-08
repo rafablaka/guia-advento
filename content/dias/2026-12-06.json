@@ -1,0 +1,53 @@
+{
+  "dia": 8,
+  "data": "2026-12-06",
+  "tipo": "domingo",
+  "semana": 2,
+  "santo": {
+    "nome": "Santo Agostinho",
+    "titulo": "Doutor da Igreja",
+    "retrato": null
+  },
+  "titulo": "[RASCUNHO] Título do dia 8",
+  "citacao": {
+    "texto": "[RASCUNHO] Citação curta do dia 8",
+    "autor": "[RASCUNHO] Santo Agostinho"
+  },
+  "ouvir": {
+    "slides": [
+      "[RASCUNHO] Trecho fiel de Santo Agostinho para o dia 8.",
+      "[RASCUNHO] Explicação atual do trecho, ligada ao dia a dia.",
+      "[RASCUNHO] Uma pergunta para levar para a oração."
+    ],
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "rezar": {
+    "texto": "[RASCUNHO] Oração guiada do dia 8, a partir do texto de hoje.",
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "agir": {
+    "missao": "[RASCUNHO] Missão concreta do dia 8."
+  },
+  "ilustracao": {
+    "arquivo": "anunciacao.svg",
+    "credito": "A Anunciação · releitura a partir de Fra Angelico",
+    "alt": "A Anunciação em estilo vitral: a pomba do Espírito Santo desce em raios dourados sobre um lírio, sob um arco ogival"
+  },
+  "antifona": null,
+  "frases": [
+    {
+      "texto": "[RASCUNHO] Citação curta do dia 8",
+      "autor": "[RASCUNHO] Santo Agostinho"
+    },
+    {
+      "texto": "[RASCUNHO] Outra frase marcante do dia 8",
+      "autor": "[RASCUNHO] Santo Agostinho"
+    },
+    {
+      "texto": "[RASCUNHO] Frase da oração do dia 8",
+      "autor": "Oração do dia"
+    }
+  ]
+}

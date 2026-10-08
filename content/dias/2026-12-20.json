@@ -1,0 +1,57 @@
+{
+  "dia": 22,
+  "data": "2026-12-20",
+  "tipo": "domingo",
+  "semana": 4,
+  "santo": {
+    "nome": "São John Henry Newman",
+    "titulo": "Doutor da Igreja",
+    "retrato": null
+  },
+  "titulo": "[RASCUNHO] Título do dia 22",
+  "citacao": {
+    "texto": "[RASCUNHO] Citação curta do dia 22",
+    "autor": "[RASCUNHO] São John Henry Newman"
+  },
+  "ouvir": {
+    "slides": [
+      "[RASCUNHO] Trecho fiel de São John Henry Newman para o dia 22.",
+      "[RASCUNHO] Explicação atual do trecho, ligada ao dia a dia.",
+      "[RASCUNHO] Uma pergunta para levar para a oração."
+    ],
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "rezar": {
+    "texto": "[RASCUNHO] Oração guiada do dia 22, a partir do texto de hoje.",
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "agir": {
+    "missao": "[RASCUNHO] Missão concreta do dia 22."
+  },
+  "ilustracao": {
+    "arquivo": "anunciacao.svg",
+    "credito": "A Anunciação · releitura a partir de Fra Angelico",
+    "alt": "A Anunciação em estilo vitral: a pomba do Espírito Santo desce em raios dourados sobre um lírio, sob um arco ogival"
+  },
+  "antifona": {
+    "letra": "C",
+    "latim": "O Clavis",
+    "texto": "[RASCUNHO] Texto da antífona O Clavis"
+  },
+  "frases": [
+    {
+      "texto": "[RASCUNHO] Citação curta do dia 22",
+      "autor": "[RASCUNHO] São John Henry Newman"
+    },
+    {
+      "texto": "[RASCUNHO] Outra frase marcante do dia 22",
+      "autor": "[RASCUNHO] São John Henry Newman"
+    },
+    {
+      "texto": "[RASCUNHO] Frase da oração do dia 22",
+      "autor": "Oração do dia"
+    }
+  ]
+}
