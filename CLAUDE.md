@@ -6,6 +6,7 @@ Toda a interface e todos os textos são em português do Brasil.
 
 ## Leia antes de qualquer coisa
 
+0. `docs/estado.md`: o que já foi feito, o que falta e as decisões tomadas. Leia primeiro e atualize no fim de cada conversa. Os demais documentos só quando o assunto pedir.
 1. `docs/escopo.md`: o escopo completo do produto (fonte da verdade).
 2. `docs/plano-de-implementacao.md`: as fases, nesta ordem.
 3. `docs/design-tokens.md`: cores, tipografia e medidas da interface.
