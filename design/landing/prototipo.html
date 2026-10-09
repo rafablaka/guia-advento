@@ -330,15 +330,10 @@ section { padding-block: 72px; }
 
 /* Garantia */
 .guar {
-  margin-top: 48px; display: grid; grid-template-columns: 88px 1fr; gap: 20px; align-items: center;
+  margin-top: 48px; display: grid; grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 20px; align-items: center;
   border-top: 1px solid var(--p-border); padding-top: 40px; max-width: 720px; margin-inline: auto;
 }
-.seal {
-  width: 88px; height: 88px; border-radius: 50%; border: 2px solid var(--p-gold); display: grid; place-items: center; text-align: center;
-  font-family: var(--display); color: var(--p-gold); line-height: 1;
-}
-.seal b { font-size: 30px; font-weight: 600; display: block; }
-.seal small { font-family: var(--ui); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.seal { width: 180px; height: 180px; display: block; filter: drop-shadow(0 10px 18px rgba(41,24,47,.25)); }
 .guar h3 { font-size: 24px; margin-bottom: 6px; }
 .guar p { color: var(--p-text-2); font-size: 15px; }
 
@@ -651,7 +646,26 @@ footer a:hover { text-decoration: underline; }
       </div>
 
       <div class="guar">
-        <div class="seal"><div><b>7</b><small>dias</small></div></div>
+        <svg class="seal" viewBox="0 0 200 200" role="img" aria-label="Garantia de 7 dias">
+  <defs>
+    <linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8DD96"/><stop offset=".45" stop-color="#D9A742"/><stop offset=".7" stop-color="#B98535"/><stop offset="1" stop-color="#F3CF7E"/></linearGradient>
+    <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1C8"/><stop offset="1" stop-color="#D9A742"/></linearGradient>
+    <radialGradient id="sd" cx=".5" cy=".42" r=".6"><stop offset="0" stop-color="#2E1F3B"/><stop offset="1" stop-color="#140C1A"/></radialGradient>
+    <path id="arcT" d="M30 100 A70 70 0 0 1 170 100"/>
+    <path id="arcB" d="M26 100 A74 74 0 0 0 174 100"/>
+  </defs>
+  <polygon points="100.0,0.0 108.9,9.4 119.5,1.9 126.4,12.9 138.3,7.6 142.9,19.7 155.6,16.9 157.7,29.7 170.7,29.3 170.3,42.3 183.1,44.4 180.3,57.1 192.4,61.7 187.1,73.6 198.1,80.5 190.6,91.1 200.0,100.0 190.6,108.9 198.1,119.5 187.1,126.4 192.4,138.3 180.3,142.9 183.1,155.6 170.3,157.7 170.7,170.7 157.7,170.3 155.6,183.1 142.9,180.3 138.3,192.4 126.4,187.1 119.5,198.1 108.9,190.6 100.0,200.0 91.1,190.6 80.5,198.1 73.6,187.1 61.7,192.4 57.1,180.3 44.4,183.1 42.3,170.3 29.3,170.7 29.7,157.7 16.9,155.6 19.7,142.9 7.6,138.3 12.9,126.4 1.9,119.5 9.4,108.9 0.0,100.0 9.4,91.1 1.9,80.5 12.9,73.6 7.6,61.7 19.7,57.1 16.9,44.4 29.7,42.3 29.3,29.3 42.3,29.7 44.4,16.9 57.1,19.7 61.7,7.6 73.6,12.9 80.5,1.9 91.1,9.4" fill="url(#sg)"/>
+  <circle cx="100" cy="100" r="86" fill="#1B1224"/>
+  <circle cx="100" cy="100" r="82" fill="url(#sg)"/>
+  <circle cx="100" cy="100" r="79" fill="none" stroke="#FFF1C8" stroke-opacity=".5" stroke-width=".8"/>
+  <circle cx="100" cy="100" r="58" fill="url(#sd)" stroke="#F8DD96" stroke-width="1.5"/>
+  <g stroke="#E1B65A" stroke-opacity=".22" stroke-width=".8"><line x1="100" y1="100" x2="156.0" y2="100.0"/><line x1="100" y1="100" x2="155.5" y2="107.3"/><line x1="100" y1="100" x2="154.1" y2="114.5"/><line x1="100" y1="100" x2="151.7" y2="121.4"/><line x1="100" y1="100" x2="148.5" y2="128.0"/><line x1="100" y1="100" x2="144.4" y2="134.1"/><line x1="100" y1="100" x2="139.6" y2="139.6"/><line x1="100" y1="100" x2="134.1" y2="144.4"/><line x1="100" y1="100" x2="128.0" y2="148.5"/><line x1="100" y1="100" x2="121.4" y2="151.7"/><line x1="100" y1="100" x2="114.5" y2="154.1"/><line x1="100" y1="100" x2="107.3" y2="155.5"/><line x1="100" y1="100" x2="100.0" y2="156.0"/><line x1="100" y1="100" x2="92.7" y2="155.5"/><line x1="100" y1="100" x2="85.5" y2="154.1"/><line x1="100" y1="100" x2="78.6" y2="151.7"/><line x1="100" y1="100" x2="72.0" y2="148.5"/><line x1="100" y1="100" x2="65.9" y2="144.4"/><line x1="100" y1="100" x2="60.4" y2="139.6"/><line x1="100" y1="100" x2="55.6" y2="134.1"/><line x1="100" y1="100" x2="51.5" y2="128.0"/><line x1="100" y1="100" x2="48.3" y2="121.4"/><line x1="100" y1="100" x2="45.9" y2="114.5"/><line x1="100" y1="100" x2="44.5" y2="107.3"/><line x1="100" y1="100" x2="44.0" y2="100.0"/><line x1="100" y1="100" x2="44.5" y2="92.7"/><line x1="100" y1="100" x2="45.9" y2="85.5"/><line x1="100" y1="100" x2="48.3" y2="78.6"/><line x1="100" y1="100" x2="51.5" y2="72.0"/><line x1="100" y1="100" x2="55.6" y2="65.9"/><line x1="100" y1="100" x2="60.4" y2="60.4"/><line x1="100" y1="100" x2="65.9" y2="55.6"/><line x1="100" y1="100" x2="72.0" y2="51.5"/><line x1="100" y1="100" x2="78.6" y2="48.3"/><line x1="100" y1="100" x2="85.5" y2="45.9"/><line x1="100" y1="100" x2="92.7" y2="44.5"/><line x1="100" y1="100" x2="100.0" y2="44.0"/><line x1="100" y1="100" x2="107.3" y2="44.5"/><line x1="100" y1="100" x2="114.5" y2="45.9"/><line x1="100" y1="100" x2="121.4" y2="48.3"/><line x1="100" y1="100" x2="128.0" y2="51.5"/><line x1="100" y1="100" x2="134.1" y2="55.6"/><line x1="100" y1="100" x2="139.6" y2="60.4"/><line x1="100" y1="100" x2="144.4" y2="65.9"/><line x1="100" y1="100" x2="148.5" y2="72.0"/><line x1="100" y1="100" x2="151.7" y2="78.6"/><line x1="100" y1="100" x2="154.1" y2="85.5"/><line x1="100" y1="100" x2="155.5" y2="92.7"/></g>
+  <text font-family="DM Sans, system-ui, sans-serif" font-weight="700" font-size="15" letter-spacing="3.5" fill="#1B1224" text-anchor="middle"><textPath href="#arcT" startOffset="50%">GARANTIA</textPath></text>
+  <text font-family="DM Sans, system-ui, sans-serif" font-weight="700" font-size="11" letter-spacing="2" fill="#1B1224" text-anchor="middle" dominant-baseline="hanging"><textPath href="#arcB" startOffset="50%">A PARTIR DO ADVENTO</textPath></text>
+  <g fill="#1B1224"><path transform="translate(26 90) scale(0.9)" d="M0-5 1.5-1.5 5-1.5 2.2.8 3.2 4.6 0 2.4-3.2 4.6-2.2.8-5-1.5-1.5-1.5Z"/><path transform="translate(24 102) scale(1.2)" d="M0-5 1.5-1.5 5-1.5 2.2.8 3.2 4.6 0 2.4-3.2 4.6-2.2.8-5-1.5-1.5-1.5Z"/><path transform="translate(26 114) scale(0.9)" d="M0-5 1.5-1.5 5-1.5 2.2.8 3.2 4.6 0 2.4-3.2 4.6-2.2.8-5-1.5-1.5-1.5Z"/><path transform="translate(174 90) scale(0.9)" d="M0-5 1.5-1.5 5-1.5 2.2.8 3.2 4.6 0 2.4-3.2 4.6-2.2.8-5-1.5-1.5-1.5Z"/><path transform="translate(176 102) scale(1.2)" d="M0-5 1.5-1.5 5-1.5 2.2.8 3.2 4.6 0 2.4-3.2 4.6-2.2.8-5-1.5-1.5-1.5Z"/><path transform="translate(174 114) scale(0.9)" d="M0-5 1.5-1.5 5-1.5 2.2.8 3.2 4.6 0 2.4-3.2 4.6-2.2.8-5-1.5-1.5-1.5Z"/></g>
+  <text x="100" y="118" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="62" fill="url(#sg2)" stroke="#8A5E1A" stroke-width=".6">7</text>
+  <text x="100" y="140" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-weight="700" font-size="13" letter-spacing="4" fill="#F3CF7E">DIAS</text>
+</svg>
         <div>
           <h3>Garantia de 7 dias a partir do início do Advento</h3>
           <p>Pode comprar agora sem receio. A sua garantia só começa a contar quando a jornada abre, em 29 de novembro. Use o Guia na primeira semana e, se ele não for para você, peça o reembolso até 5 de dezembro e devolvemos todo o valor. Se comprar depois de 29/11, os 7 dias contam a partir da compra.</p>
