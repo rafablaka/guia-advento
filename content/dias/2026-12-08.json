@@ -1,0 +1,53 @@
+{
+  "dia": 10,
+  "data": "2026-12-08",
+  "tipo": "solenidade",
+  "semana": 2,
+  "santo": {
+    "nome": "Imaculada Conceição",
+    "titulo": "Solenidade",
+    "retrato": null
+  },
+  "titulo": "[RASCUNHO] Título do dia 10",
+  "citacao": {
+    "texto": "[RASCUNHO] Citação curta do dia 10",
+    "autor": "[RASCUNHO] Imaculada Conceição"
+  },
+  "ouvir": {
+    "slides": [
+      "[RASCUNHO] Trecho fiel de Imaculada Conceição para o dia 10.",
+      "[RASCUNHO] Explicação atual do trecho, ligada ao dia a dia.",
+      "[RASCUNHO] Uma pergunta para levar para a oração."
+    ],
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "rezar": {
+    "texto": "[RASCUNHO] Oração guiada do dia 10, a partir do texto de hoje.",
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "agir": {
+    "missao": "[RASCUNHO] Missão concreta do dia 10."
+  },
+  "ilustracao": {
+    "arquivo": "anunciacao.svg",
+    "credito": "A Anunciação · releitura a partir de Fra Angelico",
+    "alt": "A Anunciação em estilo vitral: a pomba do Espírito Santo desce em raios dourados sobre um lírio, sob um arco ogival"
+  },
+  "antifona": null,
+  "frases": [
+    {
+      "texto": "[RASCUNHO] Citação curta do dia 10",
+      "autor": "[RASCUNHO] Imaculada Conceição"
+    },
+    {
+      "texto": "[RASCUNHO] Outra frase marcante do dia 10",
+      "autor": "[RASCUNHO] Imaculada Conceição"
+    },
+    {
+      "texto": "[RASCUNHO] Frase da oração do dia 10",
+      "autor": "Oração do dia"
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+@import 'tailwindcss';
+
+/* Tokens de docs/design-tokens.md. Modo Noite é o padrão; Pergaminho segue o sistema ou a escolha em "Você". */
+:root {
+  --bg: #1b1224;
+  --surface: #251a30;
+  --border: rgba(247, 238, 220, 0.11);
+  --border-forte: rgba(247, 238, 220, 0.12);
+  --text: #f7eedc;
+  --text-2: #c9bbcf;
+  --text-3: #9d8fa8;
+  --quote: #f3e6c9;
+  --gold: #e1b65a;
+  --gold-borda: rgba(225, 182, 90, 0.55);
+  --primary: #74508b;
+  --primary-deep: #553070;
+  --primary-sub: #ebddf3;
+  --gaudete-texto: #d792aa;
+  --gaudete-fill: #96476a;
+  --track: rgba(247, 238, 220, 0.16);
+  --track-2: rgba(247, 238, 220, 0.22);
+  --nav: rgba(37, 26, 48, 0.88);
+  --nav-ativo: rgba(247, 238, 220, 0.07);
+  --tracejado: rgba(247, 238, 220, 0.28);
+  --erro: #e8a0a0;
+  /* acento: dourado, ou rosa na semana Gaudete */
+  --accent: var(--gold);
+  --hoje-fill: var(--primary);
+  --hoje-borda: var(--primary);
+  --hoje-texto: var(--text);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='noite']) {
+    --bg: #f7eedc;
+    --surface: #fffbf3;
+    --border: rgba(41, 24, 47, 0.12);
+    --border-forte: rgba(41, 24, 47, 0.14);
+    --text: #29182f;
+    --text-2: #5e4b63;
+    --text-3: #74627a;
+    --quote: #3a2440;
+    --gold: #8a5e1a;
+    --gold-borda: rgba(138, 94, 26, 0.55);
+    --primary: #553070;
+    --primary-deep: #74508b;
+    --primary-sub: #ebddf3;
+    --gaudete-texto: #96476a;
+    --gaudete-fill: #96476a;
+    --track: rgba(41, 24, 47, 0.14);
+    --track-2: rgba(41, 24, 47, 0.2);
+    --nav: rgba(255, 251, 243, 0.88);
+    --nav-ativo: rgba(41, 24, 47, 0.06);
+    --tracejado: rgba(41, 24, 47, 0.3);
+    --erro: #9b2c2c;
+    color-scheme: light;
+  }
+}
+
+:root[data-theme='pergaminho'] {
+  --bg: #f7eedc;
+  --surface: #fffbf3;
+  --border: rgba(41, 24, 47, 0.12);
+  --border-forte: rgba(41, 24, 47, 0.14);
+  --text: #29182f;
+  --text-2: #5e4b63;
+  --text-3: #74627a;
+  --quote: #3a2440;
+  --gold: #8a5e1a;
+  --gold-borda: rgba(138, 94, 26, 0.55);
+  --primary: #553070;
+  --primary-deep: #74508b;
+  --primary-sub: #ebddf3;
+  --gaudete-texto: #96476a;
+  --gaudete-fill: #96476a;
+  --track: rgba(41, 24, 47, 0.14);
+  --track-2: rgba(41, 24, 47, 0.2);
+  --nav: rgba(255, 251, 243, 0.88);
+  --nav-ativo: rgba(41, 24, 47, 0.06);
+  --tracejado: rgba(41, 24, 47, 0.3);
+  --erro: #9b2c2c;
+  color-scheme: light;
+}
+
+:root[data-gaudete='1'] {
+  --accent: var(--gaudete-texto);
+  --hoje-fill: var(--gaudete-fill);
+  --hoje-borda: var(--gaudete-texto);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-borda: var(--border);
+  --color-texto: var(--text);
+  --color-texto-2: var(--text-2);
+  --color-texto-3: var(--text-3);
+  --color-citacao: var(--quote);
+  --color-ouro: var(--gold);
+  --color-acento: var(--accent);
+  --color-primaria: var(--primary);
+  --color-primaria-funda: var(--primary-deep);
+  --color-gaudete: var(--gaudete-texto);
+  --color-gaudete-fill: var(--gaudete-fill);
+  --color-trilho: var(--track);
+  --color-erro: var(--erro);
+  --font-titulo: var(--fonte-fraunces), Georgia, serif;
+  --font-sans: var(--fonte-dmsans), system-ui, sans-serif;
+  --radius-cartao: 20px;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100dvh;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Componentes recorrentes */
+.cartao {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.sobrancelha {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.botao-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 58px;
+  padding: 0 22px;
+  border-radius: 31px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--primary);
+  border: 0;
+  text-decoration: none;
+}
+
+.botao-principal:disabled {
+  opacity: 0.55;
+}
+
+.botao-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-forte);
+  text-decoration: none;
+}
+
+.botao-redondo {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-forte);
+}
+
+.campo {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border-forte);
+}
+
+.campo::placeholder {
+  color: var(--text-3);
+}
+
+.porta {
+  border-radius: 20px 20px 6px 6px;
+}
+
+.nav-inferior {
+  background: var(--nav);
+  border: 1px solid var(--border-forte);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.tela {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 24px) 24px calc(env(safe-area-inset-bottom, 0px) + 120px);
+  min-height: 100dvh;
+}
+
+.tela-cheia {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 20px) 24px calc(env(safe-area-inset-bottom, 0px) + 28px);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Só opacidade: um transform aqui faria os botões fixos se prenderem ao bloco animado */
+  .aparecer {
+    animation: aparecer 0.35s ease-out;
+  }
+  @keyframes aparecer {
+    from {
+      opacity: 0;
+    }
+  }
+}

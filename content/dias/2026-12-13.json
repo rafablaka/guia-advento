@@ -1,0 +1,53 @@
+{
+  "dia": 15,
+  "data": "2026-12-13",
+  "tipo": "domingo",
+  "semana": 3,
+  "santo": {
+    "nome": "São Bernardo de Claraval",
+    "titulo": "Doutor da Igreja",
+    "retrato": null
+  },
+  "titulo": "[RASCUNHO] Título do dia 15",
+  "citacao": {
+    "texto": "[RASCUNHO] Citação curta do dia 15",
+    "autor": "[RASCUNHO] São Bernardo de Claraval"
+  },
+  "ouvir": {
+    "slides": [
+      "[RASCUNHO] Trecho fiel de São Bernardo de Claraval para o dia 15.",
+      "[RASCUNHO] Explicação atual do trecho, ligada ao dia a dia.",
+      "[RASCUNHO] Uma pergunta para levar para a oração."
+    ],
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "rezar": {
+    "texto": "[RASCUNHO] Oração guiada do dia 15, a partir do texto de hoje.",
+    "audio": "/audio/exemplo.wav",
+    "duracao_seg": 24
+  },
+  "agir": {
+    "missao": "[RASCUNHO] Missão concreta do dia 15."
+  },
+  "ilustracao": {
+    "arquivo": "anunciacao.svg",
+    "credito": "A Anunciação · releitura a partir de Fra Angelico",
+    "alt": "A Anunciação em estilo vitral: a pomba do Espírito Santo desce em raios dourados sobre um lírio, sob um arco ogival"
+  },
+  "antifona": null,
+  "frases": [
+    {
+      "texto": "[RASCUNHO] Citação curta do dia 15",
+      "autor": "[RASCUNHO] São Bernardo de Claraval"
+    },
+    {
+      "texto": "[RASCUNHO] Outra frase marcante do dia 15",
+      "autor": "[RASCUNHO] São Bernardo de Claraval"
+    },
+    {
+      "texto": "[RASCUNHO] Frase da oração do dia 15",
+      "autor": "Oração do dia"
+    }
+  ]
+}
