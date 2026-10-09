@@ -128,7 +128,7 @@ export function BotaoPlanoTeste({ plano, rotulo }: { plano: 'simples' | 'complet
         })
       }
     >
-      {pendente ? 'Trocando…' : rotulo}
+      {pendente ? <><span className="girando" aria-hidden="true" />Trocando…</> : rotulo}
     </button>
   )
 }

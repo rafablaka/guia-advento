@@ -89,7 +89,7 @@ export function AtivarNotificacoes({ mostrarTeste = false }: { mostrarTeste?: bo
       </div>
       {estado === 'desligado' && (
         <button type="button" className="botao-principal mt-3" onClick={ativar} disabled={ocupado}>
-          {ocupado ? 'Ativando…' : 'Ativar notificações'}
+          {ocupado ? <><span className="girando" aria-hidden="true" />Ativando…</> : 'Ativar notificações'}
         </button>
       )}
       {estado === 'ativo' && mostrarTeste && (

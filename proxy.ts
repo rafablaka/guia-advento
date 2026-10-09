@@ -17,9 +17,9 @@ export async function proxy(request: NextRequest) {
       },
     },
   })
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // getClaims confere a assinatura do login sem ir ao servidor do Supabase (mais rápido)
+  const { data } = await supabase.auth.getClaims()
+  const user = data?.claims?.sub ? data.claims : null
 
   const caminho = request.nextUrl.pathname
   if (!user && !PUBLICAS.some((p) => caminho === p || caminho.startsWith(p + '/'))) {
