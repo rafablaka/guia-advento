@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { supabaseNavegador } from '@/lib/supabase/navegador'
+import { MODO_TESTE } from '@/lib/config'
 
 function destinoSeguro(valor: string | null) {
   return valor && valor.startsWith('/') && !valor.startsWith('//') ? valor : '/'
@@ -13,6 +14,8 @@ export function FormEntrar() {
   const depois = destinoSeguro(params.get('depois'))
   const [email, setEmail] = useState('')
   const [codigo, setCodigo] = useState('')
+  const [senha, setSenha] = useState('')
+  const [comSenha, setComSenha] = useState(false)
   const [etapa, setEtapa] = useState<'email' | 'enviado'>('email')
   const [carregando, setCarregando] = useState(false)
   const [erro, setErro] = useState(params.get('erro') ? 'Esse link expirou ou já foi usado. Peça um novo.' : '')
@@ -36,6 +39,22 @@ export function FormEntrar() {
       return
     }
     setEtapa('enviado')
+  }
+
+  // Só no modo de teste: entrar com e-mail e senha, sem depender do e-mail chegar
+  async function entrarComSenha(e: React.FormEvent) {
+    e.preventDefault()
+    setErro('')
+    setCarregando(true)
+    const supabase = supabaseNavegador()
+    const { error } = await supabase.auth.signInWithPassword({ email: email.trim().toLowerCase(), password: senha })
+    setCarregando(false)
+    if (error) {
+      setErro('E-mail ou senha incorretos.')
+      return
+    }
+    router.replace(depois)
+    router.refresh()
   }
 
   async function confirmarCodigo(e: React.FormEvent) {
@@ -92,6 +111,31 @@ export function FormEntrar() {
     )
   }
 
+  if (comSenha)
+    return (
+      <form onSubmit={entrarComSenha} className="mt-6">
+        <label htmlFor="email" className="sobrancelha">
+          Seu e-mail
+        </label>
+        <input id="email" type="email" required autoComplete="email" className="campo mt-2" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="voce@email.com" />
+        <label htmlFor="senha" className="sobrancelha mt-4 block">
+          Senha
+        </label>
+        <input id="senha" type="password" required autoComplete="current-password" className="campo mt-2" value={senha} onChange={(e) => setSenha(e.target.value)} />
+        {erro && (
+          <p className="mt-2" role="alert" style={{ fontSize: 14, color: 'var(--erro)' }}>
+            {erro}
+          </p>
+        )}
+        <button className="botao-principal mt-4" disabled={carregando}>
+          {carregando ? 'Entrando…' : 'Entrar'}
+        </button>
+        <button type="button" className="botao-secundario mt-3 w-full" onClick={() => setComSenha(false)}>
+          Entrar com link no e-mail
+        </button>
+      </form>
+    )
+
   return (
     <form onSubmit={enviar} className="mt-6">
       <label htmlFor="email" className="sobrancelha">
@@ -118,6 +162,11 @@ export function FormEntrar() {
       <p className="mt-4 text-center" style={{ fontSize: 13, color: 'var(--text-3)' }}>
         No iPhone, entre pelo Safari antes de instalar o app na tela inicial.
       </p>
+      {MODO_TESTE && (
+        <button type="button" className="botao-secundario mt-3 w-full" onClick={() => setComSenha(true)}>
+          Entrar com senha (teste)
+        </button>
+      )}
     </form>
   )
 }

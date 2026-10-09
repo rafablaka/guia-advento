@@ -9,6 +9,7 @@ import { Chevron } from '@/components/Icones'
 import { sair } from '@/app/acoes'
 import { Preferencias } from './Preferencias'
 import { FerramentasTeste } from './FerramentasTeste'
+import { DefinirSenha } from './DefinirSenha'
 
 export const metadata = { title: 'Você · Guia do Advento' }
 
@@ -56,6 +57,9 @@ export default async function Voce() {
         {MODO_TESTE && (
           <Secao id="teste" titulo="Ferramentas de teste">
             <FerramentasTeste data={hoje.simulada ? hoje.data : ''} plano={perfil.plano} />
+            <div className="mt-4">
+              <DefinirSenha />
+            </div>
             <NextLink href="/painel" className="mt-3 flex min-h-11 items-center justify-between no-underline" style={{ fontSize: 14, color: 'var(--text)' }}>
               Painel de métricas
               <Chevron />
