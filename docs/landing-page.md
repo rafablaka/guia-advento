@@ -1,6 +1,6 @@
 # Landing page · Guia do Advento
 
-Página de vendas. Protótipo validado como artifact (versão 4) e salvo em `design/landing/prototipo.html`.
+Página de vendas. Protótipo validado como artifact (versão 5) e salvo em `design/landing/prototipo.html`.
 
 ## Decisões
 
@@ -33,13 +33,13 @@ Página de vendas. Protótipo validado como artifact (versão 4) e salvo em `des
 
 ## Pendências
 
-- [ ] **Depoimentos reais:** colher de quem testar o app antes da venda (foto, nome, cidade ou print de Stories).
-- [ ] **Links de checkout da Guru:** Simples e Completo. A barra fixa e o fecho hoje levam aos planos.
-- [ ] **Prazo da garantia:** está em 7 dias, o mínimo legal.
-- [ ] **Rodapé:** razão social, CNPJ, e-mail de contato e Instagram.
-- [ ] **Páginas legais:** Termos de uso, Privacidade e Política de reembolso. Os links do rodapé ainda não levam a lugar nenhum.
+- [ ] **Depoimentos reais** (o Rafa vai enviar): colher de quem testar o app antes da venda (foto, nome, cidade ou print de Stories).
+- [ ] **Links de checkout da Guru** (conversar com o Rafa): Simples e Completo. A barra fixa e o fecho hoje levam aos planos.
+- [x] **Garantia:** 7 dias contados a partir de 29/11 (ou da compra, se for depois de 29/11). Aparece na página, nas perguntas frequentes e nos Termos.
+- [ ] **Rodapé** (o Rafa vai enviar): razão social, CNPJ, e-mail de contato e Instagram.
+- [x] **Páginas legais:** Termos de uso e Política de privacidade (LGPD) incluídos no protótipo, em versão simples. A página de política de reembolso foi descartada. Faltam razão social, CNPJ, contato e data de atualização (junto com os dados do rodapé). Vale uma leitura de um advogado antes de anunciar.
 - [ ] **Capturas das telas:** mostram conteúdo `[RASCUNHO]` (título e citação do dia) e o nome "Ana". Trocar por capturas com conteúdo revisado antes de anunciar.
-- [ ] **Direitos das imagens dos santos:** confirmar que os quatro retratos são de domínio público ou licenciados. O de Newman parece uma pintura recente.
+- [x] **Imagens dos santos:** o Rafa confirmou que todas são de domínio público.
 - [ ] **Papéis de parede:** é uma funcionalidade nova no app (tela de escolha) e precisa entrar no plano de implementação. As artes devem vir em formato de tela de celular. Confirmar se o bônus vale para todos os planos.
 - [ ] **"Acesso por e-mail na hora":** depende de como o webhook da Guru chega ao app (pergunta em aberto no CLAUDE.md).
 - [ ] **"Pagamento único":** confirmar a configuração na Guru.

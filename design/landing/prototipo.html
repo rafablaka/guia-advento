@@ -383,6 +383,18 @@ footer a:hover { text-decoration: underline; }
   :root { --gutter: 18px; }
   .btn { padding-left: 22px; font-size: 16px; }
 }
+
+/* Páginas legais: abrem por cima da landing (#termos, #privacidade) */
+.legal { display: none; position: fixed; inset: 0; z-index: 50; overflow-y: auto; background: var(--p-bg); color: var(--p-text); }
+.legal:target { display: block; }
+.legal .doc { max-width: 720px; margin: 0 auto; padding: calc(24px + env(safe-area-inset-top, 0px)) var(--gutter) 80px; font-size: 15px; line-height: 1.65; }
+.legal .back { display: inline-flex; align-items: center; min-height: 44px; color: var(--p-primary); font-weight: 600; text-decoration: none; }
+.legal h1 { font-size: 32px; margin: 12px 0 4px; }
+.legal h2 { font-family: var(--ui); font-size: 17px; font-weight: 700; margin: 28px 0 8px; }
+.legal p, .legal li { color: var(--p-text-2); }
+.legal p + p { margin-top: 10px; }
+.legal ul { padding-left: 20px; margin: 8px 0 0; display: grid; gap: 6px; }
+.legal .upd { font-size: 13px; color: var(--p-text-3); }
 </style>
 
 <div class="fold">
@@ -641,8 +653,8 @@ footer a:hover { text-decoration: underline; }
       <div class="guar">
         <div class="seal"><div><b>7</b><small>dias</small></div></div>
         <div>
-          <h3>Garantia de 7 dias <span class="tbd">Confirmar</span></h3>
-          <p>Se o Guia não for para você, peça o reembolso em até 7 dias e devolvemos todo o valor.</p>
+          <h3>Garantia de 7 dias a partir do início do Advento</h3>
+          <p>Pode comprar agora sem receio. A sua garantia só começa a contar quando a jornada abre, em 29 de novembro. Use o Guia na primeira semana e, se ele não for para você, peça o reembolso até 5 de dezembro e devolvemos todo o valor. Se comprar depois de 29/11, os 7 dias contam a partir da compra.</p>
         </div>
       </div>
     </div>
@@ -663,6 +675,7 @@ footer a:hover { text-decoration: underline; }
         <details><summary>Comprei depois de 29/11. Ainda vale?<span class="pm" aria-hidden="true">+</span></summary><p class="ans">Vale. Você começa no dia de hoje e pode recuperar os dias que já passaram.</p></details>
         <details><summary>Qual a diferença entre o Simples e o Completo?<span class="pm" aria-hidden="true">+</span></summary><p class="ans">O Simples tem todos os textos, orações em texto, missões, coroa, sequência e retrospectivas. O Completo soma os áudios narrados, as orações guiadas em áudio e o Advento em grupo. Se começar no Simples, pode passar para o Completo a qualquer momento por R$ 27.</p></details>
         <details><summary>Como funciona o grupo?<span class="pm" aria-hidden="true">+</span></summary><p class="ans">Quem tem o plano Completo cria um grupo e convida por link. Todos fazem o mesmo dia, cada um no seu horário, e a coroa do grupo acende quando todos rezam. Não existe ranking.</p></details>
+        <details><summary>E se eu comprar agora e não gostar?<span class="pm" aria-hidden="true">+</span></summary><p class="ans">Você tem 7 dias de garantia, que começam a contar quando o Advento começa, em 29 de novembro. Assim você usa o Guia de verdade antes de decidir. Se não for para você, devolvemos todo o valor.</p></details>
         <details><summary>Como eu recebo o acesso?<span class="pm" aria-hidden="true">+</span></summary><p class="ans">Logo depois da compra, você recebe um e-mail com o link de entrada. Não precisa criar senha.</p></details>
       </div>
     </div>
@@ -690,11 +703,76 @@ footer a:hover { text-decoration: underline; }
   <div class="wrap">
     <div class="brand" style="font-size:18px;color:var(--text)">Guia do Advento</div>
     <nav aria-label="Rodapé">
-      <a href="#planos">Termos de uso</a><a href="#planos">Privacidade</a><a href="#planos">Política de reembolso</a>
+      <a href="#termos">Termos de uso</a><a href="#privacidade">Política de privacidade</a>
     </nav>
     <p><span class="tbd">A definir</span> Razão social, CNPJ, e-mail de contato e Instagram.</p>
   </div>
 </footer>
+
+<section class="legal" id="termos" aria-label="Termos de uso"><div class="doc">
+  <a class="back" href="#">← Voltar</a>
+  <h1>Termos de uso</h1>
+  <p class="upd">Última atualização: <span class="tbd">A definir</span></p>
+  <h2>1. Quem somos</h2>
+  <p>O Guia do Advento é oferecido por <span class="tbd">A definir</span> (razão social), CNPJ <span class="tbd">A definir</span>. Contato: <span class="tbd">A definir</span>.</p>
+  <h2>2. O que é o Guia</h2>
+  <p>Um aplicativo para celular com uma jornada de 26 dias, de 29 de novembro a 24 de dezembro de 2026, com textos, orações, missões, retrospectivas e, no plano Completo, áudios e modo grupo. Ao comprar ou usar o Guia, você concorda com estes termos.</p>
+  <h2>3. Compra e acesso</h2>
+  <ul>
+    <li>A compra é feita pela plataforma Guru, em pagamento único, nos planos Simples ou Completo.</li>
+    <li>O acesso é pessoal e enviado para o e-mail usado na compra, com um link de entrada sem senha.</li>
+    <li>Os dias da jornada abrem na data certa. O conteúdo fica disponível durante o período do Advento e até a retrospectiva final de 25 de dezembro.</li>
+    <li>Quem tem o plano Simples pode passar para o Completo pagando a diferença.</li>
+  </ul>
+  <h2>4. Garantia e reembolso</h2>
+  <p>Você tem 7 dias de garantia. Para compras feitas antes de 29/11/2026, o prazo começa a contar em 29/11/2026. Para compras feitas depois, começa na data da compra. O pedido de reembolso é feito pelo contato acima ou pela Guru, e devolvemos o valor integral.</p>
+  <h2>5. Uso correto</h2>
+  <ul>
+    <li>Não compartilhe o seu acesso nem copie ou distribua o conteúdo do Guia.</li>
+    <li>No modo grupo, trate os outros participantes com respeito.</li>
+    <li>Podemos suspender acessos usados de forma abusiva.</li>
+  </ul>
+  <h2>6. Conteúdo</h2>
+  <p>Os textos, áudios, ilustrações e o design do Guia são protegidos por direitos autorais. Os trechos dos santos vêm de obras em domínio público, em tradução própria. O Guia é um apoio à vida de oração e não substitui a orientação de um sacerdote.</p>
+  <h2>7. Disponibilidade</h2>
+  <p>Trabalhamos para o app funcionar sem falhas, mas podem acontecer interrupções pontuais. Os lembretes no celular dependem das permissões do seu aparelho.</p>
+  <h2>8. Mudanças e foro</h2>
+  <p>Podemos atualizar estes termos e avisaremos sobre mudanças importantes. Vale a legislação brasileira, incluindo o Código de Defesa do Consumidor.</p>
+</div></section>
+
+<section class="legal" id="privacidade" aria-label="Política de privacidade"><div class="doc">
+  <a class="back" href="#">← Voltar</a>
+  <h1>Política de privacidade</h1>
+  <p class="upd">Última atualização: <span class="tbd">A definir</span></p>
+  <p>Esta política explica quais dados o Guia do Advento usa e por quê, de acordo com a Lei Geral de Proteção de Dados (LGPD, Lei 13.709/2018).</p>
+  <h2>1. Responsável</h2>
+  <p><span class="tbd">A definir</span> (razão social), CNPJ <span class="tbd">A definir</span>. Para qualquer assunto sobre os seus dados, fale com: <span class="tbd">A definir</span>.</p>
+  <h2>2. Dados que coletamos</h2>
+  <ul>
+    <li><strong>Da compra:</strong> nome, e-mail, plano comprado e status do pagamento, recebidos da Guru. Não temos acesso aos dados do seu cartão.</li>
+    <li><strong>Do uso do app:</strong> dias concluídos, missões cumpridas, sequência, tempo em oração, frases marcadas e horário do lembrete.</li>
+    <li><strong>Do grupo (Completo):</strong> os grupos de que você participa. Os outros membros veem o seu nome e se você já rezou no dia.</li>
+    <li><strong>Do aparelho:</strong> a autorização para enviar notificações e dados técnicos básicos para o app funcionar.</li>
+    <li><strong>Desta página:</strong> cookies e ferramentas de medição de anúncios, como o Pixel da Meta.</li>
+  </ul>
+  <h2>3. Para que usamos</h2>
+  <ul>
+    <li>Liberar o seu acesso e manter o seu progresso.</li>
+    <li>Enviar o link de entrada e os lembretes que você ativar.</li>
+    <li>Montar as suas retrospectivas e as do seu grupo.</li>
+    <li>Dar suporte, cumprir obrigações legais e melhorar o app.</li>
+    <li>Enviar novidades e ofertas, sempre com a opção de cancelar.</li>
+  </ul>
+  <h2>4. Com quem compartilhamos</h2>
+  <p>Só com os serviços que fazem o Guia funcionar: Guru (pagamento), Supabase (banco de dados e login), Vercel (hospedagem) e Meta (medição de anúncios). Não vendemos os seus dados.</p>
+  <h2>5. Por quanto tempo</h2>
+  <p>Guardamos os dados enquanto a sua conta existir ou pelo prazo exigido por lei. Você pode pedir a exclusão a qualquer momento.</p>
+  <h2>6. Seus direitos</h2>
+  <p>Você pode pedir acesso, correção, cópia ou exclusão dos seus dados e retirar o seu consentimento, pelo contato acima.</p>
+  <h2>7. Segurança</h2>
+  <p>Usamos conexão segura e controle de acesso para proteger os seus dados.</p>
+</div></section>
+
 
 <script>
 (function () {
