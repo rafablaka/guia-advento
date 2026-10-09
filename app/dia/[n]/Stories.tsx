@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Fechar } from '@/components/Icones'
 
 /** Leitura em formato stories: toque à direita avança, à esquerda volta. */
@@ -21,6 +21,14 @@ export function Stories({ slides, titulo, santo, onFechar, onFim }: { slides: st
     }
   })
 
+  // Arrastar para os lados também troca de tela
+  const inicio = useRef(0)
+  function soltar(e: React.TouchEvent) {
+    const dx = e.changedTouches[0].clientX - inicio.current
+    if (dx < -60) avancar()
+    else if (dx > 60) setI(Math.max(0, i - 1))
+  }
+
   function avancar() {
     if (ultimo) onFim()
     else setI(i + 1)
@@ -33,6 +41,8 @@ export function Stories({ slides, titulo, santo, onFechar, onFim }: { slides: st
       aria-label={`Meditação: ${titulo}`}
       className="fixed inset-0 z-50 flex flex-col"
       style={{ background: 'var(--bg)' }}
+      onTouchStart={(e) => (inicio.current = e.touches[0].clientX)}
+      onTouchEnd={soltar}
     >
       <div
         className="mx-auto flex w-full max-w-[480px] flex-1 flex-col px-6"
@@ -64,7 +74,7 @@ export function Stories({ slides, titulo, santo, onFechar, onFim }: { slides: st
           </p>
         </div>
         <button type="button" className="botao-principal" onClick={avancar}>
-          {ultimo ? 'Seguir para rezar' : 'Continuar'}
+          {ultimo ? 'Seguir para a oração' : 'Continuar'}
         </button>
       </div>
     </div>

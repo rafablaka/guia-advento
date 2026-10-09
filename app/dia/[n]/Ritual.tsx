@@ -7,7 +7,7 @@ import type { LinhaProgresso } from '@/lib/progresso'
 import { fecharDia, marcarEtapa } from '@/app/acoes'
 import { Player } from '@/components/Player'
 import { Coroa } from '@/components/Coroa'
-import { Chama, Check, ChevronCima, Fechar } from '@/components/Icones'
+import { Chama, Check, Fechar, Seta } from '@/components/Icones'
 import { Stories } from './Stories'
 
 type Etapa = 'ouvir' | 'rezar' | 'agir' | 'feito' | 'fechar'
@@ -69,7 +69,7 @@ export function Ritual(p: {
   const completo = feitos.ouvir && feitos.rezar && feitos.agir
 
   return (
-    <main className="tela-cheia" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 96px)' }}>
+    <main className="tela-cheia" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 110px)' }}>
       {/* Progresso do dia: Ouvir, Rezar, Agir */}
       <div>
         <div className="grid grid-cols-3 gap-1.5" aria-hidden="true">
@@ -175,8 +175,9 @@ export function Ritual(p: {
               />
             </div>
             <BotaoAvancar
-              rotulo={feitos.ouvir ? 'Ir para rezar' : 'Deslize para rezar'}
+              rotulo="Seguir para a oração"
               ocupado={salvando || stories}
+              onVoltar={null}
               onAvancar={() => (feitos.ouvir ? setEtapa('rezar') : concluir('ouvir', ouvido.current))}
             />
           </>
@@ -209,8 +210,9 @@ export function Ritual(p: {
               {c.rezar.texto}
             </p>
             <BotaoAvancar
-              rotulo={feitos.rezar ? 'Ir para a missão' : 'Amém'}
+              rotulo={feitos.rezar ? 'Seguir para a missão' : 'Finalizar a oração'}
               ocupado={salvando}
+              onVoltar={() => setEtapa('ouvir')}
               onAvancar={() => {
                 if (feitos.rezar) return setEtapa('agir')
                 const tempoNaTela = (Date.now() - inicioRezar.current) / 1000
@@ -391,20 +393,32 @@ function Antifona({ antifona, letras }: { antifona: NonNullable<ConteudoDia['ant
   )
 }
 
-function BotaoAvancar({ rotulo, onAvancar, ocupado }: { rotulo: string; onAvancar: () => void; ocupado: boolean }) {
-  // Deslizar para cima também avança (como nos stories)
+function BotaoAvancar({
+  rotulo,
+  onAvancar,
+  onVoltar,
+  ocupado,
+}: {
+  rotulo: string
+  onAvancar: () => void
+  onVoltar: (() => void) | null
+  ocupado: boolean
+}) {
+  // Como nos stories: arrastar para a esquerda avança, para a direita volta
   useEffect(() => {
-    let inicioY = 0
-    let inicioX = 0
+    let x0 = 0
+    let y0 = 0
     const comecar = (e: TouchEvent) => {
-      inicioY = e.touches[0].clientY
-      inicioX = e.touches[0].clientX
+      x0 = e.touches[0].clientX
+      y0 = e.touches[0].clientY
     }
     const terminar = (e: TouchEvent) => {
-      const dy = inicioY - e.changedTouches[0].clientY
-      const dx = Math.abs(inicioX - e.changedTouches[0].clientX)
-      const noFim = window.innerHeight + window.scrollY >= document.body.scrollHeight - 8
-      if (dy > 90 && dx < 60 && noFim && !ocupado) onAvancar()
+      if (ocupado) return
+      const dx = e.changedTouches[0].clientX - x0
+      const dy = Math.abs(e.changedTouches[0].clientY - y0)
+      if (Math.abs(dx) < 70 || dy > 60) return
+      if (dx < 0) onAvancar()
+      else onVoltar?.()
     }
     window.addEventListener('touchstart', comecar, { passive: true })
     window.addEventListener('touchend', terminar, { passive: true })
@@ -412,16 +426,13 @@ function BotaoAvancar({ rotulo, onAvancar, ocupado }: { rotulo: string; onAvanca
       window.removeEventListener('touchstart', comecar)
       window.removeEventListener('touchend', terminar)
     }
-  }, [onAvancar, ocupado])
+  }, [onAvancar, onVoltar, ocupado])
 
   return (
-    <div
-      className="fixed left-0 right-0 z-20 flex justify-center"
-      style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 24px)' }}
-    >
-      <button type="button" className="botao-secundario" onClick={onAvancar} disabled={ocupado}>
-        <ChevronCima />
-        {ocupado ? <><span className="girando" aria-hidden="true" />Salvando…</> : rotulo}
+    <div className="fixed left-0 right-0 z-20 flex justify-center px-6" style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 20px)' }}>
+      <button type="button" className="botao-principal" style={{ maxWidth: 432 }} onClick={onAvancar} disabled={ocupado}>
+        {rotulo}
+        <Seta />
       </button>
     </div>
   )

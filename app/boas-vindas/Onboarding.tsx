@@ -10,10 +10,10 @@ import { Marca } from '@/components/Cabecalho'
 import { Cadeado, IconeGrupo, IconeVoce } from '@/components/Icones'
 
 const ETAPAS_DO_DIA = [
-  { nome: 'Ouvir', texto: 'Um trecho de um santo e uma explicação para hoje. 2 a 3 minutos.' },
-  { nome: 'Rezar', texto: 'Uma oração guiada a partir do texto do dia. 3 a 5 minutos.' },
-  { nome: 'Agir', texto: 'Uma missão concreta para viver ao longo do dia.' },
-  { nome: 'Fechar', texto: 'À noite, dois toques: cumpriu a missão? Que frase ficou?' },
+  { nome: 'Ouvir', texto: 'um santo fala para o seu dia' },
+  { nome: 'Rezar', texto: 'uma oração guiada' },
+  { nome: 'Agir', texto: 'uma missão concreta' },
+  { nome: 'Fechar', texto: 'à noite, dois toques' },
 ]
 
 export function Onboarding(props: {
@@ -77,26 +77,26 @@ export function Onboarding(props: {
       <div className="aparecer flex-1" key={passo}>
         {passo === 0 && (
           <>
-            <div className="mt-5 flex justify-center">
-              <Coroa velas={0} largura={220} />
+            <div className="mt-3 flex justify-center">
+              <Coroa velas={0} largura={160} />
             </div>
-            <h1 className="font-titulo mt-3" style={{ fontSize: 30, fontWeight: 500, lineHeight: 1.12, letterSpacing: '-0.015em' }}>
+            <h1 className="font-titulo mt-2" style={{ fontSize: 28, fontWeight: 500, lineHeight: 1.12, letterSpacing: '-0.015em' }}>
               26 dias para viver o Advento
             </h1>
-            <p className="mt-2" style={{ fontSize: 15, lineHeight: 1.45, color: 'var(--text-2)' }}>
-              De 29 de novembro a 24 de dezembro, uma porta por dia. Cada dia leva de 7 a 10 minutos.
+            <p className="mt-1.5" style={{ fontSize: 14.5, lineHeight: 1.45, color: 'var(--text-2)' }}>
+              De 29/11 a 24/12, uma porta por dia, de 7 a 10 minutos.
             </p>
-            <ul className="mt-4 flex flex-col gap-2">
+            <ul className="cartao mt-3 grid grid-cols-2 gap-x-3 gap-y-2 px-4 py-3">
               {ETAPAS_DO_DIA.map((e) => (
-                <li key={e.nome} className="cartao flex gap-3 px-4 py-3">
-                  <span className="font-titulo shrink-0" style={{ width: 64, fontSize: 17, fontWeight: 500, color: 'var(--accent)' }}>
+                <li key={e.nome} style={{ fontSize: 13, lineHeight: 1.3, color: 'var(--text-2)' }}>
+                  <span className="font-titulo block" style={{ fontSize: 16, fontWeight: 500, color: 'var(--accent)' }}>
                     {e.nome}
                   </span>
-                  <span style={{ fontSize: 14, lineHeight: 1.4, color: 'var(--text-2)' }}>{e.texto}</span>
+                  {e.texto}
                 </li>
               ))}
             </ul>
-            <label htmlFor="nome" className="sobrancelha mt-5 block">
+            <label htmlFor="nome" className="sobrancelha mt-4 block">
               Como podemos te chamar?
             </label>
             <input id="nome" className="campo mt-2" value={nome} onChange={(e) => setNome(e.target.value)} placeholder="Seu nome" autoComplete="given-name" />
@@ -214,7 +214,10 @@ export function Onboarding(props: {
           {erro}
         </p>
       )}
-      <div className="mt-6 flex flex-col gap-2">
+      <div
+        className="sticky bottom-0 -mx-6 mt-4 flex flex-col gap-1 px-6 pt-3"
+        style={{ background: 'var(--bg)', paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 8px)' }}
+      >
         <button type="button" className="botao-principal" onClick={avancar} disabled={ocupado}>
           {passo === total - 1 ? (ocupado ? 'Preparando…' : 'Começar') : 'Continuar'}
         </button>
