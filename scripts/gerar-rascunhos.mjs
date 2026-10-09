@@ -26,7 +26,7 @@ for (let n = 1; n <= 26; n++) {
   if (ANTIFONAS[n] && !DOMINGOS[n]) tipo = 'antifona'
   if (n === 10) { tipo = 'solenidade'; santo = { nome: 'Imaculada Conceição', titulo: 'Solenidade', retrato: null } }
   if (n === 26) tipo = 'vespera'
-  const antifona = ANTIFONAS[n] ? { letra: ANTIFONAS[n][0], latim: ANTIFONAS[n][1], texto: `[RASCUNHO] Texto da antífona ${ANTIFONAS[n][1]}` } : null
+  const antifona = ANTIFONAS[n] ? { latim: ANTIFONAS[n][1], texto: `[RASCUNHO] Texto da antífona ${ANTIFONAS[n][1]}` } : null
   const conteudo = {
     dia: n,
     data,

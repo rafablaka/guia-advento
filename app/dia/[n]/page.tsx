@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { notFound } from 'next/navigation'
 import { exigirSessao, meuProgresso } from '@/lib/sessao'
 import { carregarDia, frasesDoDia, iniciais } from '@/lib/conteudo'
-import { ANTIFONAS, TOTAL_DIAS, dataDoDia, dataPorExtenso, diferencaDias, velasAcesas } from '@/lib/calendario'
+import { TOTAL_DIAS, dataDoDia, dataPorExtenso, diferencaDias, velasAcesas } from '@/lib/calendario'
 import { sequenciaAtual } from '@/lib/progresso'
 import { Fechar } from '@/components/Icones'
 import { Coroa } from '@/components/Coroa'
@@ -21,7 +21,6 @@ export default async function Dia({ params }: { params: Promise<{ n: string }> }
 
   const progresso = await meuProgresso()
   const linha = progresso.get(n) ?? null
-  const antifonaIndice = ANTIFONAS.findIndex((a) => a.data === conteudo.data)
 
   return (
     <Ritual
@@ -31,7 +30,6 @@ export default async function Dia({ params }: { params: Promise<{ n: string }> }
       bloqueado={perfil.plano !== 'completo'}
       hoje={dia}
       frases={frasesDoDia(conteudo)}
-      letrasReveladas={antifonaIndice >= 0 ? ANTIFONAS.slice(0, antifonaIndice + 1).map((a) => a.letra) : []}
       velas={velasAcesas(hoje.data)}
       sequencia={sequenciaAtual(progresso, dia)}
       recuperando={n < dia && !linha?.completo_no_dia}

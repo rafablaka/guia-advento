@@ -20,7 +20,6 @@ export function Ritual(p: {
   bloqueado: boolean
   hoje: number
   frases: { texto: string; autor: string }[]
-  letrasReveladas: string[]
   velas: number
   sequencia: number
   recuperando: boolean
@@ -125,7 +124,7 @@ export function Ritual(p: {
         {etapa === 'ouvir' && (
           <>
             {c.antifona ? (
-              <Antifona antifona={c.antifona} letras={p.letrasReveladas} />
+              <Antifona antifona={c.antifona} />
             ) : (
               c.ilustracao && (
                 <figure className="mt-3.5 flex flex-col items-center">
@@ -343,51 +342,15 @@ function Citacao({ texto, autor }: { texto: string; autor: string }) {
   )
 }
 
-function Antifona({ antifona, letras }: { antifona: NonNullable<ConteudoDia['antifona']>; letras: string[] }) {
-  const todas = ['S', 'A', 'R', 'C', 'O', 'R', 'E']
-  const completa = letras.length === 7
+function Antifona({ antifona }: { antifona: NonNullable<ConteudoDia['antifona']> }) {
   return (
-    <section className="mt-4 flex flex-col items-center text-center" aria-label="Antífonas do Ó">
+    <section className="mt-6 text-center" aria-label="Antífonas do Ó">
       <p className="sobrancelha">Antífonas do Ó</p>
-      <div
-        className="font-titulo mt-3 flex items-center justify-center rounded-full"
-        style={{ width: 120, height: 120, fontSize: 64, fontWeight: 600, color: 'var(--gold)', border: '1.5px solid var(--gold-borda)' }}
-        aria-label={`Letra de hoje: ${antifona.letra}`}
-      >
-        {antifona.letra}
-      </div>
-      <p className="font-titulo mt-3" style={{ fontSize: 22, fontStyle: 'italic', color: 'var(--quote)' }}>
+      <p className="font-titulo mt-3" style={{ fontSize: 30, fontStyle: 'italic', color: 'var(--gold)' }}>
         {antifona.latim}
       </p>
-      <p className="mt-1" style={{ fontSize: 14, color: 'var(--text-2)' }}>
+      <p className="mt-2" style={{ fontSize: 15, lineHeight: 1.5, color: 'var(--text-2)' }}>
         {antifona.texto}
-      </p>
-      <div className="mt-4 flex gap-1.5" aria-label={`Letras reveladas: ${letras.join(' ')}`}>
-        {todas.map((l, i) => (
-          <span
-            key={i}
-            className="porta font-titulo flex items-center justify-center"
-            style={{
-              width: 34,
-              height: 44,
-              fontSize: 18,
-              fontWeight: 600,
-              color: i < letras.length ? 'var(--gold)' : 'transparent',
-              border: i < letras.length ? '1px solid var(--gold-borda)' : '1px solid var(--border-forte)',
-            }}
-          >
-            {i < letras.length ? l : '·'}
-          </span>
-        ))}
-      </div>
-      <p className="mt-2" style={{ fontSize: 13, color: 'var(--text-3)' }}>
-        {completa ? (
-          <>
-            De trás para frente: <strong style={{ color: 'var(--gold)' }}>ERO CRAS</strong>, “amanhã estarei aí”.
-          </>
-        ) : (
-          'Uma letra por dia, até 23 de dezembro.'
-        )}
       </p>
     </section>
   )

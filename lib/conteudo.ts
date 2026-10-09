@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { dataDoDia } from '@/lib/calendario'
 
-export type Antifona = { letra: string; latim: string; texto: string }
+export type Antifona = { latim: string; texto: string }
 
 export type ConteudoDia = {
   dia: number

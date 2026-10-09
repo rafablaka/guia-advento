@@ -10,7 +10,7 @@ const ATALHOS = [
   { data: '2026-12-08', rotulo: '8/12 · Imaculada' },
   { data: '2026-12-13', rotulo: '13/12 · Gaudete' },
   { data: '2026-12-20', rotulo: '20/12 · Antífona C' },
-  { data: '2026-12-23', rotulo: '23/12 · ERO CRAS' },
+  { data: '2026-12-23', rotulo: '23/12 · Antífona' },
   { data: '2026-12-24', rotulo: '24/12 · Véspera' },
   { data: '2026-12-25', rotulo: '25/12 · Natal' },
 ]

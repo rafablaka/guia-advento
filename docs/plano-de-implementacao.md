@@ -31,7 +31,7 @@ Cada fase termina com um preview publicado e uma pausa para o Rafa revisar. Não
 - Coroa: o número de velas acesas é o número de domingos já alcançados (0 a 4). Usar `public/illustrations/coroa-N.svg`.
 - Caminho: as 26 portas, com recuperação de dias perdidos.
 - Quem entra depois de 29/11 começa no dia corrente, e os dias anteriores ficam abertos para recuperar.
-- Variações: domingos (santo convidado), 8/12 (Imaculada, conteúdo mariano), 17 a 23/12 (Antífonas do Ó com a letra do ERO CRAS), 24/12 (fechamento).
+- Variações: domingos (santo convidado), 8/12 (Imaculada, conteúdo mariano), 17 a 23/12 (Antífonas do Ó, com a reflexão de cada antífona), 24/12 (fechamento).
 - Plano Simples: Ouvir e Rezar em texto. O áudio aparece bloqueado, com prévia de alguns segundos e o botão "Ouvir no Completo".
 - **Pronto quando:** dá para simular qualquer data entre 29/11 e 25/12 (com uma data de teste configurável) e ver o estado correto.
 

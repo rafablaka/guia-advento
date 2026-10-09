@@ -34,11 +34,11 @@ A jornada vai de 29/11 (1º domingo do Advento) a 24/12 (véspera de Natal): 26 
 | 6 a 12/12 | 2ª semana. Domingo 6/12: 2ª vela (roxa) + retrospectiva da 1ª semana |
 | 8/12 | Imaculada Conceição: conteúdo mariano próprio |
 | 13 a 19/12 | 3ª semana, Domingo da Alegria. 13/12: 3ª vela (rosa) + retrospectiva da 2ª semana |
-| 17 a 23/12 | Antífonas do Ó, uma letra do ERO CRAS por dia |
+| 17 a 23/12 | Antífonas do Ó, uma antífona por dia |
 | 20 a 24/12 | 4ª semana, só 5 dias. 20/12: 4ª vela (roxa) + retrospectiva da 3ª semana |
 | 25/12, manhã | Retrospectiva final da jornada |
 
-Os domingos marcam o ritmo: vela nova na coroa, santo convidado e retrospectiva da semana. A 3ª semana começa no Domingo da Alegria (vela rosa). De 17 a 23/12, as Antífonas do Ó substituem o formato comum e revelam, uma letra por dia, o ERO CRAS.
+Os domingos marcam o ritmo: vela nova na coroa, santo convidado e retrospectiva da semana. A 3ª semana começa no Domingo da Alegria (vela rosa). De 17 a 23/12, cada dia traz a reflexão de uma das Antífonas do Ó.
 
 ## 4. Ritual diário
 
@@ -62,7 +62,7 @@ Santo Afonso de Ligório é a espinha da jornada: suas meditações de Advento e
 | --- | --- | --- |
 | Dias comuns | Santo Afonso de Ligório | Segunda a sábado |
 | Domingos | Santo Afonso abre a jornada; depois Santo Agostinho, São Bernardo e São John Henry Newman (ordem a definir) | 4 domingos |
-| Antífonas do Ó | Liturgia das Horas, com a mecânica ERO CRAS (as iniciais lidas de trás para frente formam "amanhã estarei aí") | 17 a 23/12 |
+| Antífonas do Ó | Liturgia das Horas: reflexão sobre a antífona do dia | 17 a 23/12 |
 | Véspera de Natal | Fechamento da jornada | 24/12 |
 
 Exceção na grade: em 8/12, solenidade da Imaculada Conceição, o dia tem conteúdo mariano próprio no lugar do texto de Santo Afonso.
@@ -173,7 +173,7 @@ Antes de 29/11, o Início vira a tela de espera (seção 9). Para quem está no 
 | O Dia · Rezar | Player da oração guiada | Parcial (player na tela do Dia) |
 | O Dia · Agir | Missão do dia e confirmação | A desenhar |
 | Fechar | Check da noite | A desenhar |
-| Antífonas do Ó | Variação do Dia para 17 a 23/12, com a letra do ERO CRAS revelada | A desenhar |
+| Antífonas do Ó | Variação do Dia para 17 a 23/12, com a antífona do dia | A desenhar |
 | Caminho | As 26 portas da jornada, recuperar dias perdidos | A desenhar |
 | Grupo | Membros, coroa do grupo, convite | A desenhar |
 | Você | Perfil, lembretes, modo Noite ou Pergaminho, conta | A desenhar |
@@ -214,7 +214,6 @@ O guia completo do estilo está no repositório do app (docs/vitral-style-guide.
 | Coroa do Advento | 5 versões (0 a 4 velas acesas) | Espera, Início, retrospectivas | A versão apagada é da contagem regressiva. Ordem: roxa, roxa, rosa no 3º domingo, roxa. Fundo transparente, funciona nos dois modos |
 | Releituras de pinturas | 26, uma por dia | Ouvir | Releituras em vitral de obras em domínio público, com crédito "a partir de" artista e obra. Inclui uma pintura mariana para 8/12 |
 | Retratos dos santos | 4: Afonso, Agostinho, Bernardo, Newman | Cabeçalho do Dia | Hoje o cabeçalho usa só as iniciais "SA" |
-| Antífonas do Ó | 7 letras: S, A, R, C, O, R, E | 17 a 23/12 | Uma letra revelada por dia até formar ERO CRAS |
 | Natividade | 1 | Retrospectiva final, 25/12 | Fecho da jornada |
 | Modelos de Stories 9:16 | 4: semanal, final, grupo, convite | Compartilhamento | Design com dados preenchidos pelo app, não ilustração |
 | Ícone e tela de abertura | 1 de cada | Tela inicial do celular | Aparece quando instalam o web app |

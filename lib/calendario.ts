@@ -143,17 +143,6 @@ export function saudacao(hora: number) {
   return 'Boa noite'
 }
 
-/** Antífonas do Ó: 17 a 23/12, uma letra por dia. Lidas de trás para frente: ERO CRAS. */
-export const ANTIFONAS = [
-  { data: '2026-12-17', letra: 'S', latim: 'O Sapientia' },
-  { data: '2026-12-18', letra: 'A', latim: 'O Adonai' },
-  { data: '2026-12-19', letra: 'R', latim: 'O Radix' },
-  { data: '2026-12-20', letra: 'C', latim: 'O Clavis' },
-  { data: '2026-12-21', letra: 'O', latim: 'O Oriens' },
-  { data: '2026-12-22', letra: 'R', latim: 'O Rex' },
-  { data: '2026-12-23', letra: 'E', latim: 'O Emmanuel' },
-]
-
 export function validarData(valor: string | undefined | null) {
   return valor && /^\d{4}-\d{2}-\d{2}$/.test(valor) && !Number.isNaN(utc(valor)) ? valor : null
 }

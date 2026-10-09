@@ -39,7 +39,7 @@ Toda a interface e todos os textos são em português do Brasil.
 - **Semana Gaudete (13 a 19/12):** o acento da interface muda para rosa (ver tokens).
 - **Domingos:** santo convidado (Afonso, Agostinho, Bernardo e Newman, ordem a definir).
 - **8/12:** Imaculada Conceição, conteúdo mariano próprio.
-- **Antífonas do Ó (17 a 23/12):** uma letra por dia, que lidas de trás para frente formam ERO CRAS ("amanhã estarei aí"): 17 S (Sapientia), 18 A (Adonai), 19 R (Radix), 20 C (Clavis), 21 O (Oriens), 22 R (Rex), 23 E (Emmanuel).
+- **Antífonas do Ó (17 a 23/12):** cada dia traz a reflexão de uma das antífonas: 17 O Sapientia, 18 O Adonai, 19 O Radix, 20 O Clavis, 21 O Oriens, 22 O Rex, 23 O Emmanuel.
 - **Entrada tardia:** quem compra depois de 29/11 começa no dia corrente e pode recuperar os dias anteriores.
 - **Antes de 29/11:** modo de espera (contagem regressiva, setup, grupo e convite).
 - **Planos:** `simples` (R$ 20): textos, missões, coroa, sequência e retrospectivas. `completo` (R$ 47): tudo + áudios + grupo. Upgrade por R$ 27. No Simples, o conteúdo do Completo aparece com cadeado, nunca escondido.
@@ -67,7 +67,7 @@ Um arquivo por dia em `content/dias/AAAA-MM-DD.json`. Os áudios ficam no Supaba
 }
 ```
 
-`tipo`: `comum` | `domingo` | `solenidade` | `antifona` | `vespera`. Em `antifona`: `{ "letra": "S", "latim": "O Sapientia", "texto": "[RASCUNHO]" }`.
+`tipo`: `comum` | `domingo` | `solenidade` | `antifona` | `vespera`. Em `antifona`: `{ "latim": "O Sapientia", "texto": "[RASCUNHO]" }`.
 
 ## Design
 
