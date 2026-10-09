@@ -101,7 +101,7 @@ export function FormEntrar() {
             </p>
           )}
           <button className="botao-principal mt-4" disabled={codigo.length < 6 || carregando}>
-            {carregando ? 'Entrando…' : 'Entrar com o código'}
+            {carregando ? <><span className="girando" aria-hidden="true" />Entrando…</> : 'Entrar com o código'}
           </button>
         </form>
         <button type="button" className="botao-secundario mt-4 w-full" onClick={() => setEtapa('email')}>
@@ -128,7 +128,7 @@ export function FormEntrar() {
           </p>
         )}
         <button className="botao-principal mt-4" disabled={carregando}>
-          {carregando ? 'Entrando…' : 'Entrar'}
+          {carregando ? <><span className="girando" aria-hidden="true" />Entrando…</> : 'Entrar'}
         </button>
         <button type="button" className="botao-secundario mt-3 w-full" onClick={() => setComSenha(false)}>
           Entrar com link no e-mail
@@ -157,7 +157,7 @@ export function FormEntrar() {
         </p>
       )}
       <button className="botao-principal mt-4" disabled={carregando}>
-        {carregando ? 'Enviando…' : 'Receber link de acesso'}
+        {carregando ? <><span className="girando" aria-hidden="true" />Enviando…</> : 'Receber link de acesso'}
       </button>
       <p className="mt-4 text-center" style={{ fontSize: 13, color: 'var(--text-3)' }}>
         No iPhone, entre pelo Safari antes de instalar o app na tela inicial.

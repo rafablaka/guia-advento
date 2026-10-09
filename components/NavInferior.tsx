@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 import { usePathname } from 'next/navigation'
 import { IconeCaminho, IconeGrupo, IconeInicio, IconeVoce } from './Icones'
@@ -12,6 +13,9 @@ const ITENS = [
 
 export function NavInferior() {
   const caminho = usePathname()
+  // Destaca a aba tocada na hora, sem esperar a tela carregar
+  const [tocada, setTocada] = useState<string | null>(null)
+  useEffect(() => setTocada(null), [caminho])
   return (
     <nav
       aria-label="Navegação principal"
@@ -25,11 +29,12 @@ export function NavInferior() {
       }}
     >
       {ITENS.map(({ href, rotulo, Icone }) => {
-        const ativo = href === '/' ? caminho === '/' : caminho.startsWith(href)
+        const ativo = tocada ? tocada === href : href === '/' ? caminho === '/' : caminho.startsWith(href)
         return (
           <NextLink
             key={href}
             href={href}
+            onClick={() => setTocada(href)}
             aria-current={ativo ? 'page' : undefined}
             className="flex flex-col items-center justify-center gap-[3px] no-underline"
             style={{

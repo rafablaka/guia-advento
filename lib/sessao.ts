@@ -34,10 +34,9 @@ export const hojeAtual = cache(async () => {
 
 export const contexto = cache(async () => {
   const supabase = await supabaseServidor()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-  const hoje = await hojeAtual()
+  const [{ data: dadosLogin }, hoje] = await Promise.all([supabase.auth.getClaims(), hojeAtual()])
+  const claims = dadosLogin?.claims
+  const user = claims?.sub ? { id: claims.sub, email: (claims.email as string | undefined) ?? null } : null
   if (!user) return { supabase, user: null, perfil: null, hoje, dia: diaDaJornada(hoje.data), fase: faseDaData(hoje.data) }
   const { data: perfil } = await supabase.from('perfis').select('*').eq('id', user.id).single<Perfil>()
   return { supabase, user, perfil, hoje, dia: diaDaJornada(hoje.data), fase: faseDaData(hoje.data) }

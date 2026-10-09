@@ -31,7 +31,8 @@ export function Ritual(p: {
   const [fechado, setFechado] = useState(!!p.linha?.fechar_em)
   const [etapa, setEtapa] = useState<Etapa>(() => (!feitos.ouvir ? 'ouvir' : !feitos.rezar ? 'rezar' : !feitos.agir ? 'agir' : 'feito'))
   const [stories, setStories] = useState(false)
-  const [salvando, setSalvando] = useState(false)
+  const [salvando] = useState(false)
+  const [erro, setErro] = useState('')
   const [acabouDeCompletar, setAcabouDeCompletar] = useState(false)
   const ouvido = useRef(0)
   const inicioRezar = useRef(0)
@@ -46,15 +47,22 @@ export function Ritual(p: {
     window.scrollTo({ top: 0 })
   }, [etapa])
 
+  // Avança na hora e salva em segundo plano; se falhar, volta e avisa
   async function concluir(e: 'ouvir' | 'rezar' | 'agir', segundos = 0) {
-    setSalvando(true)
-    const r = await marcarEtapa(c.dia, e, segundos)
-    setSalvando(false)
-    if (!r.ok) return
+    const antes = feitos
     const novos = { ...feitos, [e]: true }
+    setErro('')
     setFeitos(novos)
-    if (r.completouAgora) setAcabouDeCompletar(true)
+    const vaiCompletar = novos.ouvir && novos.rezar && novos.agir && !(antes.ouvir && antes.rezar && antes.agir)
+    if (vaiCompletar) setAcabouDeCompletar(true)
     setEtapa(!novos.ouvir ? 'ouvir' : !novos.rezar ? 'rezar' : !novos.agir ? 'agir' : 'feito')
+    const r = await marcarEtapa(c.dia, e, segundos).catch(() => ({ ok: false }) as const)
+    if (!r.ok) {
+      setFeitos(antes)
+      setEtapa(e)
+      setErro('Não conseguimos salvar. Confira a internet e tente de novo.')
+      return
+    }
     router.refresh()
   }
 
@@ -288,6 +296,11 @@ export function Ritual(p: {
         )}
       </div>
 
+      {erro && (
+        <p role="alert" className="cartao fixed left-6 right-6 z-30 p-3 text-center" style={{ top: 'calc(env(safe-area-inset-top, 0px) + 16px)', fontSize: 14, color: 'var(--erro)' }}>
+          {erro}
+        </p>
+      )}
       {stories && (
         <Stories
           slides={c.ouvir.slides}
@@ -408,7 +421,7 @@ function BotaoAvancar({ rotulo, onAvancar, ocupado }: { rotulo: string; onAvanca
     >
       <button type="button" className="botao-secundario" onClick={onAvancar} disabled={ocupado}>
         <ChevronCima />
-        {ocupado ? 'Salvando…' : rotulo}
+        {ocupado ? <><span className="girando" aria-hidden="true" />Salvando…</> : rotulo}
       </button>
     </div>
   )
@@ -495,7 +508,7 @@ function FecharDia(p: {
         ))}
       </div>
       <button type="button" className="botao-principal mt-6" disabled={!missao || salvando} onClick={salvar}>
-        {salvando ? 'Guardando…' : 'Fechar o dia'}
+        {salvando ? <><span className="girando" aria-hidden="true" />Guardando…</> : 'Fechar o dia'}
       </button>
     </div>
   )
