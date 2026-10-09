@@ -1,6 +1,6 @@
 # Landing page · Guia do Advento
 
-Página de vendas. Protótipo validado como artifact (versão 7) e salvo em `design/landing/prototipo.html`.
+Página de vendas. Protótipo validado como artifact (versão 8) e salvo em `design/landing/prototipo.html`.
 
 ## Decisões
 
@@ -51,7 +51,7 @@ Página de vendas. Protótipo validado como artifact (versão 7) e salvo em `des
   - favicon
   - Pixel da Meta
   - domínio
-- [ ] **Preço depois da pré-venda:** quanto custa cada plano a partir de 29/11 (aparece como "A definir" nos planos). Confirmar se o Simples também tem preço de pré-venda.
-- [ ] **Fim da pré-venda:** confirmar 28/11. Depois dessa data, a página precisa trocar os textos de pré-venda (e a Guru, o preço).
-- [ ] **"Vitalício" no app:** depois de 25/12, as portas e as retrospectivas continuam abertas. Definir se o app abre de novo nos próximos Advents para quem já comprou (hoje a página não promete isso).
+- [x] **Preços:** Simples R$ 20 e Completo R$ 47, como preço de pré-venda até 28/11. A página não mostra preço posterior.
+- [ ] **Depois de 28/11:** trocar os textos de pré-venda na página e o preço na Guru.
+- [x] **Vitalício:** a jornada e as retrospectivas continuam no app depois do Natal. Os próximos Advents não estão incluídos.
 - [ ] **Revisão final do texto de venda.**
