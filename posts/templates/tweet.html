@@ -67,7 +67,9 @@
   const acao = (nome, valor) => `<span class="acao">${icone(nome)}${valor ? esc(valor) : ''}</span>`
 
   window.render = (p, modo) => {
-    const avatar = p.avatar ? `<img src="${img(p.avatar)}" alt="">` : esc(p.iniciais || iniciais(p.nome))
+    const letras = esc(p.iniciais || iniciais(p.nome))
+    // sem o arquivo do retrato, volta para as iniciais
+    const avatar = p.avatar ? `<img src="${img(p.avatar)}" alt="" onerror="this.parentNode.textContent='${letras}'">` : letras
     document.getElementById('card').innerHTML = `
       <div class="topo">
         <div class="avatar">${avatar}</div>

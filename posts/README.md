@@ -45,7 +45,7 @@ Fotos e papéis de parede (`busca` e `notificacao`) recebem um filtro duotone ro
 
 Caminhos de imagem são relativos à pasta `posts/` (por exemplo, `../public/illustrations/anunciacao.svg` ou `imagens/fotos/coroa-vela-acesa.jpg`).
 
-**tweet**: `nome`, `handle`, `avatar` (imagem; sem imagem, usa as iniciais sobre roxo), `texto` (até 280 caracteres; a fonte diminui sozinha se o texto for longo), `hora_data`, `respostas`, `reposts`, `curtidas`, `views`. Opcional: `iniciais`, para trocar as iniciais calculadas.
+**tweet**: `nome`, `handle`, `avatar` (imagem; os retratos ficam em `imagens/santos/`, e sem o arquivo entram as iniciais sobre roxo), `texto` (até 280 caracteres; a fonte diminui sozinha se o texto for longo), `hora_data`, `respostas`, `reposts`, `curtidas`, `views`. Opcional: `iniciais`, para trocar as iniciais calculadas.
 
 **notificacao**: `wallpaper`, `data`, `hora`, `notificacoes[]` com `titulo`, `corpo` e `tempo` (de 1 a 3).
 

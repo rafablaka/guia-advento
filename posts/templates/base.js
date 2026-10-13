@@ -77,7 +77,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   window.render(post, modo)
   await document.fonts.ready
   await Promise.all(
-    [...document.images].map((i) => (i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r }))),
+    [...document.images].map((i) => (i.complete ? 0 : new Promise((r) => { i.addEventListener('load', r); i.addEventListener('error', r) }))),
   )
   if (window.ajustar) await window.ajustar(post, modo)
   window.PRONTO = true
