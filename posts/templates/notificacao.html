@@ -11,7 +11,7 @@
     --brilho: 0.68;
   }
   html[data-modo='escuro'] {
-    --card: rgba(30, 26, 34, 0.55); --texto: #fff; --texto-2: rgba(235, 235, 245, 0.6);
+    --card: rgba(58, 44, 72, 0.6); --texto: #fff; --texto-2: rgba(235, 235, 245, 0.6);
     --brilho: 0.5;
   }
 
@@ -20,9 +20,10 @@
   .fundo img {
     position: absolute; left: 50%; top: 50%; width: 1500px; height: 1500px; object-fit: cover;
     transform: translate(-50%, -46%);
-    filter: blur(24px) brightness(var(--brilho)) saturate(1.1);
+    filter: url(#duotone) blur(24px) brightness(var(--brilho));
   }
 
+  .grao { position: absolute; inset: 0; opacity: 0.16; mix-blend-mode: overlay; pointer-events: none; }
   .tela { position: relative; zoom: 2.5; width: 432px; height: 432px; color: #fff; overflow: hidden; }
 
   .status { height: 44px; padding: 14px 26px 0; display: flex; justify-content: flex-end; align-items: center; gap: 6px; }
@@ -43,7 +44,7 @@
     border-radius: 22px; padding: 11px 14px 13px; color: var(--texto);
   }
   .cabeca { display: flex; align-items: center; gap: 7px; color: var(--texto-2); font-size: 12.5px; letter-spacing: 0.02em; }
-  .cabeca svg { width: 20px; height: 20px; }
+  .cabeca .icone-guia { width: 20px; height: 20px; border-radius: 5px; }
   .cabeca .app { flex: 1; text-transform: uppercase; }
   .cabeca .tempo { letter-spacing: 0; }
   .titulo { margin-top: 7px; font-size: 15px; font-weight: 600; line-height: 1.25; }
@@ -52,6 +53,7 @@
 </head>
 <body data-template="notificacao">
 <div class="fundo"><img id="fundo" alt=""></div>
+<svg class="grao" width="1080" height="1080"><filter id="ruido"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#ruido)"/></svg>
 <div class="tela" id="tela">
   <div class="status">
     <svg width="18" height="11" viewBox="0 0 18 11"><rect x="0" y="7" width="3" height="4" rx=".8"/><rect x="5" y="5" width="3" height="6" rx=".8"/><rect x="10" y="2.5" width="3" height="8.5" rx=".8"/><rect x="15" y="0" width="3" height="11" rx=".8"/></svg>

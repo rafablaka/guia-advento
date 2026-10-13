@@ -2,7 +2,18 @@
 // O gerador (posts/gerar.mjs) injeta window.POST (um item do JSON) e window.MODO ('claro' | 'escuro').
 // Aberto por um servidor local (npx serve posts), lê ../dados/<template>.json?item=0&modo=escuro.
 
-const ICONE_GUIA = `<svg viewBox="0 0 44 44" aria-hidden="true"><rect width="44" height="44" rx="9.7" fill="#553070"/><g transform="translate(9.7 9.7) scale(1.025)"><path d="M12 1.5c.7 5 1.8 6.1 6.8 6.8-5 .7-6.1 1.8-6.8 6.8-.7-5-1.8-6.1-6.8-6.8 5-.7 6.1-1.8 6.8-6.8z" fill="#E1B65A"/><circle cx="12" cy="20" r="1.6" fill="#E1B65A"/></g></svg>`
+const ICONE_GUIA = '<img class="icone-guia" src="../imagens/icone-guia.jpg" alt="">'
+
+// Filtro duotone roxo para fotos e papéis de parede: sombras ameixa, luzes lilás.
+// Uso no CSS: filter: url(#duotone)
+const DUOTONE = `<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="duotone" color-interpolation-filters="sRGB">
+  <feColorMatrix type="matrix" values="0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0.299 0.587 0.114 0 0  0 0 0 1 0"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="0.106 0.333 0.890"/>
+    <feFuncG type="table" tableValues="0.071 0.188 0.800"/>
+    <feFuncB type="table" tableValues="0.141 0.439 0.949"/>
+  </feComponentTransfer>
+</filter></svg>`
 
 // tom: 'claro' = texto creme (sobre fundo escuro) · 'escuro' = texto chumbo (sobre fundo claro)
 function selo(tom) {
@@ -61,6 +72,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   }
   modo = modo || 'claro'
+  document.body.insertAdjacentHTML('afterbegin', DUOTONE)
   document.documentElement.dataset.modo = modo
   window.render(post, modo)
   await document.fonts.ready

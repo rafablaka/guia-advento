@@ -41,6 +41,8 @@ Por padrão, os templates de UI saem nos dois modos. Para gerar só um, coloque 
 
 ### Campos
 
+Fotos e papéis de parede (`busca` e `notificacao`) recebem um filtro duotone roxo e um leve desfoque. A foto não precisa ser muito nítida. O ícone do Guia (no selo e nas notificações) fica em `imagens/icone-guia.jpg`; para trocar, salve outra imagem quadrada com o mesmo nome.
+
 Caminhos de imagem são relativos à pasta `posts/` (por exemplo, `../public/illustrations/anunciacao.svg` ou `imagens/fotos/coroa-vela-acesa.jpg`).
 
 **tweet**: `nome`, `handle`, `avatar` (imagem; sem imagem, usa as iniciais sobre roxo), `texto` (até 280 caracteres; a fonte diminui sozinha se o texto for longo), `hora_data`, `respostas`, `reposts`, `curtidas`, `views`. Opcional: `iniciais`, para trocar as iniciais calculadas.
