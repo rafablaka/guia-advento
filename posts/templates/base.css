@@ -1,0 +1,43 @@
+/* Base comum dos templates de posts (1080 × 1080). */
+
+/* Identidade do app */
+@font-face { font-family: 'Fraunces'; font-weight: 500; src: url('../../assets/fonts/fraunces-500.ttf'); }
+@font-face { font-family: 'Fraunces'; font-weight: 600; src: url('../../assets/fonts/fraunces-600.ttf'); }
+@font-face { font-family: 'Fraunces'; font-weight: 400; font-style: italic; src: url('../../assets/fonts/fraunces-italico.ttf'); }
+@font-face { font-family: 'DM Sans'; font-weight: 400; src: url('../../assets/fonts/dmsans-400.ttf'); }
+@font-face { font-family: 'DM Sans'; font-weight: 600; src: url('../../assets/fonts/dmsans-600.ttf'); }
+
+/* Substitutas livres das fontes do sistema. Num Mac, o SF Pro e os emojis da Apple têm prioridade. */
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('../fontes/Inter-Regular.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 500; src: url('../fontes/Inter-Medium.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('../fontes/Inter-SemiBold.otf'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url('../fontes/Inter-Bold.otf'); }
+@font-face { font-family: 'Inter Display'; font-weight: 600; src: url('../fontes/InterDisplay-SemiBold.otf'); }
+@font-face { font-family: 'Google Sans'; font-weight: 400; src: url('../fontes/GoogleSans-Regular.ttf'); }
+@font-face { font-family: 'Google Sans'; font-weight: 500; src: url('../fontes/GoogleSans-Medium.ttf'); }
+
+:root {
+  --ios: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif, 'Apple Color Emoji', 'Noto Color Emoji';
+  --ios-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter Display', 'Inter', sans-serif;
+  --roxo: #553070;
+}
+html[data-modo='escuro'] { --roxo: #74508B; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1080px; overflow: hidden; }
+body { position: relative; -webkit-font-smoothing: antialiased; font-family: var(--ios); }
+img { display: block; }
+svg { display: block; flex-shrink: 0; }
+
+/* Selo: ícone do Guia + nome, canto inferior direito, 60% de opacidade */
+.selo {
+  position: absolute; z-index: 50;
+  right: var(--selo-direita, 40px); bottom: var(--selo-base, 40px);
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0.6;
+  font: 500 23px/1 'Fraunces', serif; letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.selo svg { width: 44px; height: 44px; }
+.selo.claro { color: #F7EEDC; }
+.selo.escuro { color: #29182F; }

@@ -50,6 +50,7 @@ Para desligar o modo de teste, defina `NEXT_PUBLIC_MODO_TESTE=0` na Vercel e `mo
 | `content/dias/` | Um arquivo por dia. O conteúdo real substitui os rascunhos com o mesmo nome |
 | `supabase/migrations/` | Estrutura do banco (já aplicada no projeto Supabase `guia-do-advento`) |
 | `public/sw.js` | Service worker: funciona sem internet e recebe as notificações |
+| `posts/` | Templates dos posts orgânicos do Instagram (ver `posts/README.md`) |
 
 ### Notificações
 

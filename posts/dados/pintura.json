@@ -1,0 +1,14 @@
+{
+  "itens": [
+    {
+      "id": "anunciacao-afonso",
+      "imagem": "../public/illustrations/anunciacao.svg",
+      "foco": "50% 22%",
+      "escala": 1.45,
+      "campo": null,
+      "frase": "Ao consentir em ser mãe de tal Filho, ela consentiu também em ser Mãe da nossa salvação.",
+      "autor": "Santo Afonso de Ligório",
+      "credito": "a partir de Fra Angelico, Anunciação"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "modos": ["claro", "escuro"],
+  "itens": [
+    {
+      "id": "porta-aberta",
+      "wallpaper": "../public/illustrations/anunciacao.svg",
+      "data": "terça-feira, 13 de outubro",
+      "hora": "6:30",
+      "notificacoes": [
+        {
+          "titulo": "A porta de hoje está aberta",
+          "corpo": "Santo Afonso tem uma palavra para você. 7 minutos.",
+          "tempo": "agora"
+        },
+        {
+          "titulo": "Só falta você",
+          "corpo": "4 de 5 já rezaram hoje. Acenda a coroa do grupo 🕯️",
+          "tempo": "2 min"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Pintura e frase</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  /* Identidade do app (Vitral Litúrgico): não é UI, tem uma variante só. */
+  body { background: #1B1224; }
+  .pintura { position: absolute; left: 0; top: 0; width: 1080px; height: 648px; overflow: hidden; background: var(--campo, #1B1224); }
+  .pintura img { width: 100%; height: 100%; object-fit: cover; }
+
+  .faixa {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 432px;
+    background: #1B1224;
+    padding: 52px 80px 104px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .frase { font: italic 400 46px/1.3 'Fraunces', serif; color: #F7EEDC; letter-spacing: -0.005em; text-wrap: pretty; }
+  .autor { margin-top: 26px; font: 600 20px/1 'DM Sans', sans-serif; color: #E1B65A; text-transform: uppercase; letter-spacing: 0.1em; }
+  .credito { position: absolute; left: 80px; bottom: 50px; font: 400 17px/1 'DM Sans', sans-serif; color: #9D8FA8; }
+  body { --selo-base: 40px; }
+</style>
+</head>
+<body data-template="pintura">
+<div class="pintura"><img id="imagem" alt=""></div>
+<div class="faixa"><div class="frase" id="frase"></div><div class="autor" id="autor"></div></div>
+<div class="credito" id="credito"></div>
+<script src="base.js"></script>
+<script>
+  window.render = (p) => {
+    const imagem = document.getElementById('imagem')
+    imagem.src = img(p.imagem)
+    if (p.foco) imagem.style.objectPosition = p.foco
+    // aproxima a imagem (ex.: 1.5) para a arte sangrar nas bordas
+    if (p.escala) {
+      imagem.style.transform = `scale(${p.escala})`
+      imagem.style.transformOrigin = p.foco || '50% 50%'
+    }
+    // cor que preenche o que a imagem não cobrir (artes provisórias em arco)
+    if (p.campo) document.querySelector('.pintura').style.setProperty('--campo', p.campo)
+    document.getElementById('frase').textContent = p.frase
+    document.getElementById('autor').textContent = p.autor
+    document.getElementById('credito').textContent = p.credito || ''
+    document.body.insertAdjacentHTML('beforeend', selo('claro'))
+  }
+  window.ajustar = () => {
+    const faixa = document.querySelector('.faixa')
+    caberComFonte(document.getElementById('frase'), 46, 28, () => faixa.scrollHeight <= faixa.clientHeight)
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "modos": ["claro", "escuro"],
+  "itens": [
+    {
+      "id": "familia",
+      "nome_grupo": "Família 🏡",
+      "foto_grupo": "🏡",
+      "mensagens": [
+        { "remetente": "Ana", "cor": "laranja", "texto": "gente, bora fazer o Advento juntos esse ano?", "hora": "09:12", "enviada": false },
+        {
+          "remetente": "Ana", "cor": "laranja", "texto": "guiadoadvento.com.br", "hora": "09:12", "enviada": false,
+          "link_preview": {
+            "imagem": "../public/illustrations/coroa-1.svg",
+            "fundo": "#1B1224",
+            "titulo": "Guia do Advento",
+            "descricao": "26 dias, 7 minutos por dia",
+            "dominio": "guiadoadvento.com.br"
+          }
+        },
+        { "remetente": "Pedro", "cor": "roxo", "texto": "bora! dá pra fazer em grupo?", "hora": "09:15", "enviada": false },
+        { "remetente": "Você", "texto": "dá sim, a coroa do grupo só acende quando todo mundo reza 🕯️", "hora": "09:16", "enviada": true },
+        { "remetente": "Mãe", "cor": "azul", "texto": "me coloca 🙏", "hora": "09:20", "enviada": false }
+      ]
+    }
+  ]
+}

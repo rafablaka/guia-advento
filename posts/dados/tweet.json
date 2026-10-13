@@ -1,0 +1,17 @@
+{
+  "modos": ["claro", "escuro"],
+  "itens": [
+    {
+      "id": "afonso-amor",
+      "nome": "Santo Afonso de Ligório",
+      "handle": "@santoafonso",
+      "avatar": null,
+      "texto": "Os outros reis reinam pela força das armas; mas tu vens reinar pelo poder do amor.",
+      "hora_data": "7:00 AM · 29 de nov.",
+      "respostas": "1,2 mil",
+      "reposts": "8,4 mil",
+      "curtidas": "31 mil",
+      "views": "412 mil"
+    }
+  ]
+}

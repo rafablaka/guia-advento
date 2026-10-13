@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Busca que completa a frase</title>
+<link rel="stylesheet" href="base.css">
+<style>
+  body { background: #2a1f1a; }
+
+  /* Foto de fundo com tom quente e granulado leve */
+  .foto { position: absolute; inset: 0; overflow: hidden; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; filter: sepia(0.18) saturate(1.08) contrast(1.03) brightness(0.96); }
+  .foto::after { content: ''; position: absolute; inset: 0; background: rgba(255, 170, 90, 0.07); mix-blend-mode: soft-light; }
+  .grao { position: absolute; inset: 0; opacity: 0.22; mix-blend-mode: overlay; pointer-events: none; }
+
+  .card {
+    position: absolute; left: 50%; width: 350px; zoom: 1.85; /* 648px = 60% da largura */
+    transform: translateX(-50%);
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(20, 10, 5, 0.38), 0 2px 8px rgba(20, 10, 5, 0.2);
+  }
+  .digitado { white-space: pre-wrap; overflow-wrap: anywhere; }
+  .cursor { display: inline-block; width: 2px; height: 1.12em; margin-left: 1px; vertical-align: -0.18em; background: var(--roxo); border-radius: 1px; }
+  .sugestao { display: flex; align-items: center; gap: 12px; }
+  .sugestao .texto { flex: 1; min-width: 0; }
+
+  /* ---------- iOS ---------- */
+  .ios { font-family: var(--ios); background: #FFFFFF; color: #000; border-radius: 16px; --sec: rgba(60, 60, 67, 0.6); --campo: rgba(118, 118, 128, 0.12); --faixa: #F2F2F7; --sep: rgba(60, 60, 67, 0.18); }
+  html[data-modo='escuro'] .ios { background: #1C1C1E; color: #fff; --sec: rgba(235, 235, 245, 0.6); --campo: rgba(118, 118, 128, 0.24); --faixa: #2C2C2E; --sep: rgba(84, 84, 88, 0.6); }
+  .ios .topo { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px 12px 12px; }
+  .ios .campo { flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 6px; padding: 7px 8px; border-radius: 10px; background: var(--campo); font-size: 17px; line-height: 22px; letter-spacing: -0.01em; }
+  .ios .campo .lupa { margin-top: 3px; }
+  .ios .campo .digitado { flex: 1; min-width: 0; }
+  .ios .campo .limpar { margin-top: 3px; }
+  .ios .cancelar { color: var(--roxo); font-size: 17px; line-height: 22px; padding-top: 7px; }
+  .ios .faixa { background: var(--faixa); color: var(--sec); padding: 7px 16px; font-size: 13px; font-weight: 600; line-height: 18px; letter-spacing: 0.01em; }
+  .ios .sugestoes { padding: 0 0 4px 16px; }
+  .ios .sugestao { min-height: 46px; padding-right: 16px; font-size: 17px; line-height: 22px; border-bottom: 0.5px solid var(--sep); }
+  .ios .sugestao:last-child { border-bottom: 0; }
+  .ios .sugestao .texto { font-weight: 600; padding: 11px 0; }
+  .ios svg { stroke: var(--sec); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Google ---------- */
+  .google { font-family: 'Google Sans', Roboto, Arial, sans-serif, 'Apple Color Emoji', 'Noto Color Emoji'; background: #FFFFFF; color: #202124; border-radius: 26px; --sec: #5F6368; --barra: #FFFFFF; --borda: #DADCE0; --faixa: #F1F3F4; }
+  html[data-modo='escuro'] .google { background: #202124; color: #E8EAED; --sec: #9AA0A6; --barra: #303134; --borda: #5F6368; --faixa: #303134; }
+  .google .topo { padding: 10px 10px 8px; }
+  .google .barra { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px 11px 14px; border-radius: 24px; background: var(--barra); border: 1px solid var(--borda); box-shadow: 0 1px 6px rgba(32, 33, 36, 0.12); font-size: 17px; line-height: 23px; }
+  .google .barra .digitado { flex: 1; min-width: 0; }
+  .google .barra svg { margin-top: 1px; }
+  .google .faixa { margin: 4px 0 2px; background: var(--faixa); color: var(--sec); padding: 7px 20px; font-size: 13px; font-weight: 500; line-height: 18px; }
+  .google .sugestoes { padding: 2px 0 8px; }
+  .google .sugestao { min-height: 44px; padding: 0 18px 0 22px; gap: 16px; font-size: 16.5px; line-height: 22px; }
+  .google .sugestao .texto { padding: 10px 0; }
+  .google .sugestao .texto b { font-weight: 500; }
+  .google .sugestoes svg { stroke: var(--sec); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body data-template="busca">
+<div class="foto"><img id="fundo" alt=""></div>
+<svg class="grao" width="1080" height="1080"><filter id="ruido"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#ruido)"/></svg>
+<div class="card" id="card"></div>
+<script src="base.js"></script>
+<script>
+  const LUPA = (t) => `<svg class="lupa" width="${t}" height="${t}" viewBox="0 0 18 18"><circle cx="7.6" cy="7.6" r="5.6"/><path d="m11.8 11.8 4.4 4.4"/></svg>`
+  const SETA = (t) => `<svg width="${t}" height="${t}" viewBox="0 0 18 18"><path d="M14.5 14.5 4 4M4 11V4h7"/></svg>`
+  const LIMPAR = '<svg class="limpar" width="17" height="17" viewBox="0 0 17 17" style="stroke:none"><circle cx="8.5" cy="8.5" r="8.5" fill="currentColor" opacity=".45"/><path d="m5.6 5.6 5.8 5.8m0-5.8-5.8 5.8" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>'
+  const LOGO_G = '<svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>'
+  const MICROFONE = '<svg width="22" height="22" viewBox="0 0 24 24"><rect x="8.5" y="2" width="7" height="12.5" rx="3.5" fill="#4285F4"/><path d="M5 11.5a7 7 0 0 0 7 7" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round"/><path d="M12 18.5a7 7 0 0 0 7-7" fill="none" stroke="#FBBC05" stroke-width="2" stroke-linecap="round"/><path d="M12 18.5V22" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/></svg>'
+
+  // valores divididos pelo zoom do card (1.85): 54px ≈ 100px na imagem
+  const POSICOES = { alto: 'top: 54px', centro: 'top: 50%; transform: translate(-50%, -50%)', baixo: 'bottom: 54px' }
+
+  window.render = (p, modo) => {
+    const fundo = document.getElementById('fundo')
+    fundo.src = img(p.fundo)
+    if (p.foco) fundo.style.objectPosition = p.foco
+    // aproxima a foto a partir do ponto de foco, para tirar o assunto de baixo do card
+    if (p.escala) {
+      fundo.style.transform = `scale(${p.escala})`
+      fundo.style.transformOrigin = p.foco || '50% 50%'
+    }
+    const card = document.getElementById('card')
+    const digitado = `<span class="digitado">${esc(p.digitado)}<span class="cursor"></span></span>`
+    const sugestoes = (p.sugestoes || []).slice(0, 5)
+
+    if (p.ui === 'google') {
+      card.className = 'card google'
+      card.innerHTML = `
+        <div class="topo"><div class="barra">${LOGO_G}${digitado}${MICROFONE}</div></div>
+        ${p.referencia ? `<div class="faixa">${esc(p.referencia)}</div>` : ''}
+        <div class="sugestoes">${sugestoes.map((s) => `
+          <div class="sugestao">${LUPA(19)}<span class="texto"><b>${esc(s)}</b></span>${SETA(19)}</div>`).join('')}
+        </div>`
+    } else {
+      card.className = 'card ios'
+      card.innerHTML = `
+        <div class="topo">
+          <div class="campo">${LUPA(16)}${digitado}<span style="color:var(--sec)">${LIMPAR}</span></div>
+          <span class="cancelar">Cancelar</span>
+        </div>
+        ${p.referencia ? `<div class="faixa">${esc(p.referencia)}</div>` : ''}
+        <div class="sugestoes">${sugestoes.map((s) => `
+          <div class="sugestao">${LUPA(17)}<span class="texto">${esc(s)}</span>${SETA(17)}</div>`).join('')}
+        </div>`
+    }
+    card.style.cssText += ';' + (POSICOES[p.posicao] || POSICOES.centro)
+    document.body.insertAdjacentHTML('beforeend', selo('claro'))
+  }
+</script>
+</body>
+</html>

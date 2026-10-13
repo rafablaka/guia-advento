@@ -1,0 +1,16 @@
+{
+  "modos": ["claro", "escuro"],
+  "itens": [
+    {
+      "id": "meu-advento",
+      "titulo": "meu Advento 2026",
+      "itens": [
+        { "texto": "parar de chegar no Natal só cansado", "marcado": true },
+        { "texto": "rezar 7 min por dia, de verdade", "marcado": true },
+        { "texto": "fazer a missão do dia", "marcado": false },
+        { "texto": "confessar antes do dia 24", "marcado": false }
+      ],
+      "texto_livre": "“Eis que a porta do meu coração já está aberta: entra, mas entra para nunca mais sair.” (Santo Afonso)"
+    }
+  ]
+}

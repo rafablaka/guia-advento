@@ -1,0 +1,27 @@
+{
+  "modos": ["claro", "escuro"],
+  "itens": [
+    {
+      "id": "a-isaias",
+      "ui": "ios",
+      "fundo": "imagens/fotos/coroa-vela-acesa.jpg",
+      "foco": "48% 100%",
+      "escala": 1.3,
+      "posicao": "baixo",
+      "digitado": "Um menino nos nasceu, e o seu nome será",
+      "referencia": "Isaías 9,5",
+      "sugestoes": ["Conselheiro Admirável", "Deus Forte", "Pai Eterno", "Príncipe da Paz"]
+    },
+    {
+      "id": "b-afonso",
+      "ui": "google",
+      "fundo": "imagens/fotos/biblia-caneca-manha.jpg",
+      "foco": "42% 0%",
+      "escala": 1.3,
+      "posicao": "alto",
+      "digitado": "Jesus é todo meu:",
+      "referencia": "Santo Afonso de Ligório",
+      "sugestoes": ["o seu corpo é meu", "o seu sangue é meu", "a sua vida é minha", "os seus méritos, tudo é meu"]
+    }
+  ]
+}

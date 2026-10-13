@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Padrão de desenhos de fundo, no espírito do papel de parede do WhatsApp. A cor e a opacidade vêm do template. -->
+  <path d="M22 18c0-5 6-7 9-3 3-4 9-2 9 3 0 6-9 11-9 11s-9-5-9-11z"/>
+  <path d="M70 12l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>
+  <rect x="118" y="10" width="16" height="26" rx="3"/><path d="M124 32h4"/>
+  <path d="M160 26a8 8 0 1 1 16 0h4a4 4 0 0 1 0 8h-24a4 4 0 0 1 0-8z"/>
+  <circle cx="30" cy="70" r="11"/><path d="M25 67v1M35 67v1M25 74c3 3 7 3 10 0"/>
+  <path d="M74 60v20M74 60l12-4v18"/><circle cx="70" cy="80" r="4"/><circle cx="82" cy="74" r="4"/>
+  <path d="M112 64h22a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4h-14l-8 6v-6a4 4 0 0 1-4-4V68a4 4 0 0 1 4-4z"/>
+  <path d="M162 62h18l-2 20h-14z M180 66h4a3 3 0 0 1 0 6h-5"/><path d="M168 56c0-3 3-3 3-6M174 56c0-3 3-3 3-6"/>
+  <rect x="14" y="112" width="30" height="20" rx="4"/><circle cx="29" cy="122" r="6"/><path d="M22 112l3-4h8l3 4"/>
+  <path d="M76 108c10 4 10 22 0 30-10-8-10-26 0-30zM76 116v28"/>
+  <path d="M116 112l4 4 4-4 4 4 4-4 4 4M116 124l4 4 4-4 4 4 4-4 4 4"/>
+  <path d="M166 110a12 12 0 1 0 12 14 9 9 0 0 1-12-14z"/>
+  <path d="M20 168h20l-3 18H23zM30 168v-8"/><path d="M26 160h8"/>
+  <path d="M66 160l10 10M76 160l-10 10M71 158v14M64 165h14"/>
+  <circle cx="122" cy="170" r="8"/><path d="M122 154v4M122 182v4M106 170h4M134 170h4M111 159l3 3M130 178l3 3M133 159l-3 3M114 178l-3 3"/>
+  <path d="M164 182c0-12 8-20 16-24-2 8-2 16 2 22M164 182c6-4 12-4 18-2"/>
+</svg>
